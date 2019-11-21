@@ -7,7 +7,7 @@ const ingredientRouter = express.Router();
 
 ingredientRouter.route("/:recipe_id").get((req, res, next) => {
   const knexInstance = req.app.get("db");
-  IngredientService.getId(knexInstance, req.params.recipe_id)
+  IngredientService.getByRecipeId(knexInstance, req.params.recipe_id)
     .then(ingredient => {
       res.json(ingredient);
     })

@@ -2,7 +2,7 @@ const IngredientService = {
   getAllIngredients(knex) {
     return knex.select("*").from("ingredients");
   },
-  getRecipeId(knex, recipe_id) {
+  getByRecipeId(knex, recipe_id) {
     return knex
       .select("*")
       .from("recipe_ingredients")
