@@ -9,9 +9,9 @@ const IngredientService = {
       .where({ recipe_id })
       .join(
         "ingredients.name",
-        "recipe_ingredients.ingredient_id",
+        "ingredients.id",
         "=",
-        "ingredients.id"
+        "recipe_ingredients.ingredient_id"
       );
     // join select ing_name from ingredients where id ing.ingredient_id
   }
