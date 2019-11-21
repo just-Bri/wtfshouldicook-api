@@ -8,8 +8,8 @@ const ingredientRouter = express.Router();
 ingredientRouter.route("/:recipe_id").get((req, res, next) => {
   const knexInstance = req.app.get("db");
   IngredientService.getByRecipeId(knexInstance, req.params.recipe_id)
-    .then(ingredients => {
-      res.json(ingredients);
+    .then(recipe => {
+      res.json(recipe);
     })
     .catch(next);
 });
