@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const { NODE_ENV } = require("./config");
 
 const RecipeRouter = require("./recipe/recipe-router");
+const IngredientRouter = require("./ingredients/ingredients-router");
 const app = express();
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
@@ -19,6 +20,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/recipe", RecipeRouter);
+app.use("/api/ingredient", IngredientRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;

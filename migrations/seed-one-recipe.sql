@@ -4,7 +4,7 @@ BEGIN;
 INSERT into
   recipes (name, prep_time, cook_time, cuisine, complexity)
 VALUES
-  ('test name', '1', '2', 'Italian', '1') ON CONFLICT DO NOTHING;
+  ('test name', '1', '2', 'Italian', '1');
 
 INSERT into
   ingredients (name)
@@ -18,6 +18,6 @@ INSERT into
 VALUES
   (1, 1, '1lb'),
   (1, 2, 'enough'),
-  (1, 3, '1 jar') ON CONFLICT DO NOTHING;
+  (1, 3, '1 jar');
 
 COMMIT;
