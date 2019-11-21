@@ -6,7 +6,7 @@ const IngredientService = {
     return db("recipe_ingredients")
       .join("ingredients", "recipe_ingredients.ingredient_id", "ingredients.id")
       .select("ingredient.amount", "recipe_ingredients.amount")
-      .where("recipe_id", "=", `${recipe_id}`);
+      .where("recipe_ingredients.recipe_id", "=", `${recipe_id}`);
     // .rightJoin();
     // .join("ingredients", {
     //   "recipe_ingredients.ingredient_id": "ingredients.id"
