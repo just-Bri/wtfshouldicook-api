@@ -4,10 +4,14 @@ const IngredientService = {
   },
   getByRecipeId(knex, recipe_id) {
     return knex
-      .select("ingredient_amount")
-      .from("recipe_ingredients")
+      .from("recipe_ingredients AS recIng")
+      .select("recIng.amount", "ingredients.name")
       .where({ recipe_id })
-      .innerJoin("ingredients");
+      .leftJoin("ingredients as ings", "recIng.ingredient_id", "ings.id");
+    // .select("ingredient_amount")
+    // .from("recipe_ingredients")
+    // .where({ recipe_id })
+    // .innerJoin("ingredients");
     // knex("users").innerJoin("accounts", function() {
     //   this.on("accounts.id", "=", "users.account_id").orOn(
     //     "accounts.owner_id",
