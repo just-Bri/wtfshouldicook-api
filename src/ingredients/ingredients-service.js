@@ -1,12 +1,12 @@
 const IngredientService = {
-  getAllIngredients(knex) {
-    return knex.select("*").from("ingredients");
+  getAllIngredients(db) {
+    return db.select("*").from("ingredients");
   },
-  getByRecipeId(knex, recipe_id) {
-    return knex
+  getByRecipeId(db, recipe_id) {
+    return db
       .from("recipe_ingredients")
       .select("recipe_ingredients.amount", "ingredient.name")
-      .where("recipe_ingredients.recipe_id", "=", recipe_id)
+      .where("recipe_ingredients.recipe_id", "=", `${recipe_id}`)
       .join("ingredients", {
         "recipe_ingredients.ingredient_id": "ingredients.id"
       });
