@@ -1,9 +1,12 @@
 const RecipeService = {
-  getAllRecipes(knex) {
-    return knex.select("*").from("recipes");
+  getAllRecipes(db) {
+    return db.select("*").from("recipes");
   },
-  getById(knex, id) {
-    return knex("recipes").where({ id });
+  getById(db, id) {
+    return db("recipes").where({ id });
+  },
+  getAllById(db, id) {
+    return db();
   }
 };
 

@@ -14,8 +14,8 @@ const jsonParser = express.json();
 // })
 
 recipeRouter.route("/:id").get((req, res, next) => {
-  const knexInstance = req.app.get("db");
-  RecipeService.getById(knexInstance, req.params.id)
+  const db = req.app.get("db");
+  RecipeService.getById(db, req.params.id)
     .then(recipe => {
       res.json(recipe);
     })
