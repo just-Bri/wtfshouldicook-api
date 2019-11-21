@@ -4,11 +4,10 @@ const IngredientService = {
   },
   getByRecipeId(knex, recipe_id) {
     return knex
-      .select("ring.amount", "ing.amount")
       .from("recipe_ingredients AS ring")
-      .join("ingredients AS ing", "ing.id", "ring.ingredient_id")
+      .select("ring.amount", "ing.amount")
       .where("ring.recipe_id", "=", recipe_id)
-      .returing("*");
+      .join("ingredients AS ing", "ing.id", "ring.ingredient_id");
     // join select ing_name from ingredients where id ing.ingredient_id
   }
 };
