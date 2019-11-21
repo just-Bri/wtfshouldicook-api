@@ -13,19 +13,13 @@ const jsonParser = express.json();
 //   picture_url = recipe.picture_url
 // })
 
-recipeRouter.route("/").get((req, res, next) => {
-  const knexInstance = req.app.get("db");
-  RecipeService.getAllRecipes(knexInstance)
-    .then(recipes => {
-      res.json(recipes);
-    })
-    .catch(next);
-});
 recipeRouter.route("/:id").get((req, res, next) => {
   const knexInstance = req.app.get("db");
-  RecipeService.getId(knexInstance, id)
+  RecipeService.getId(knexInstance, req.params.id)
     .then(recipe => {
       res.json(recipe);
     })
     .catch(next);
 });
+
+module.exports = recipeRouter;
