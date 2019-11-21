@@ -12,7 +12,8 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "predeploy": "npm audit",
-    "deploy": "git push heroku master"
+    "deploy": "git push heroku master",
+    "hp": "npm install --production"
   },
   "keywords": [],
   "author": "",

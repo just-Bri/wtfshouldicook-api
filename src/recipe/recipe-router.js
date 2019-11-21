@@ -21,3 +21,11 @@ recipeRouter.route("/").get((req, res, next) => {
     })
     .catch(next);
 });
+recipeRouter.route("/:id").get((req, res, next) => {
+  const knexInstance = req.app.get("db");
+  RecipeService.getId(knexInstance, id)
+    .then(recipe => {
+      res.json(recipe);
+    })
+    .catch(next);
+});
