@@ -3,7 +3,10 @@ const IngredientService = {
     return knex.select("*").from("ingredients");
   },
   getRecipeId(knex, recipe_id) {
-    return knex("recipe_ingredients").where({ recipe_id });
+    return knex
+      .select("*")
+      .from("recipe_ingredients")
+      .where({ recipe_id });
   }
 };
 
