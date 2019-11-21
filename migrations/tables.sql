@@ -11,7 +11,7 @@ CREATE TABLE "recipes" (
   "name" varchar(50) NOT NULL,
   "prep_time" int NOT NULL,
   "cook_time" int NOT NULL,
-  "category" varchar(50) NOT NULL,
+  "cuisine" varchar(50) NOT NULL,
   "complexity" int NOT NULL,
   primary key (id)
 );
@@ -34,7 +34,7 @@ CREATE TABLE "instructions" (
 CREATE TABLE "recipe_ingredients" (
   "recipe_id" int NOT NULL,
   "ingredient_id" int NOT NULL,
-  "ingredient_amount" int NOT NULL,
+  "ingredient_amount" varchar(50) NOT NULL,
   FOREIGN KEY ("recipe_id") REFERENCES "recipes" ("id"),
   FOREIGN KEY ("ingredient_id") REFERENCES "ingredients" ("id")
 );
