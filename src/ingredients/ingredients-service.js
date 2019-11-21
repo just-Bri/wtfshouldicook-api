@@ -7,15 +7,7 @@ const IngredientService = {
       .select("ingredient_amount")
       .from("recipe_ingredients")
       .where({ recipe_id })
-      .innerJoin(
-        "ingredients",
-        () => {
-          this.on("ingredients.id", "=", "recipe_ingredients.ingredient_id");
-        }
-        // "recipe_ingredients.ingredient_id",
-        // "=",
-        // "ingredients.id"
-      );
+      .innerJoin("ingredients");
     knex("users").innerJoin("accounts", function() {
       this.on("accounts.id", "=", "users.account_id").orOn(
         "accounts.owner_id",
