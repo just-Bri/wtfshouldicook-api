@@ -3,10 +3,11 @@ const IngredientService = {
     return db.select("*").from("ingredients");
   },
   getByRecipeId(db, recipe_id) {
-    return db
-      .from("recipe_ingredients")
-      .select("ingredient_amount")
+    return db("recipe_ingredients")
+      .join("ingredients", "recipe_ingredients.ingredient_id", "ingredients.id")
+      .select("ingredient.amount", "recipe_ingredients.amount")
       .where("recipe_id", "=", `${recipe_id}`);
+    // .rightJoin();
     // .join("ingredients", {
     //   "recipe_ingredients.ingredient_id": "ingredients.id"
     // });
