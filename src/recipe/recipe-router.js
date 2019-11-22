@@ -19,7 +19,11 @@ recipeRouter
     res.status(200).send("testing /api/recipe GET");
   })
   .post((req, res) => {
-    res.status(200).send(Object.entires(req.body));
+    let blah = "";
+    for (let [key, value] of Object.entries(req.body)) {
+      blah += `${key}:${value}`;
+    }
+    res.status(200).send(blah);
   });
 recipeRouter.route("/:id").get((req, res, next) => {
   const db = req.app.get("db");
