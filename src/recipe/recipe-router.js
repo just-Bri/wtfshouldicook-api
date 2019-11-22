@@ -23,8 +23,8 @@ recipeRouter
       .status(201)
       .location("/")
       .json(serializeRecipe(req.body));
-  })
-  .catch(next);
+  });
+
 recipeRouter.route("/:id").get((req, res, next) => {
   const db = req.app.get("db");
   RecipeService.getById(db, req.params.id)
