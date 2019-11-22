@@ -1,13 +1,11 @@
 require("dotenv").config();
 const pg = require("pg");
 const app = require("./app");
-const cors = require("cors");
 const { PORT, DATABASE_URL } = require("./config");
 const knex = require("knex");
 const connect = require("../knexfile");
 
 const db = knex(connect);
-app.use(cors());
 app.set("db", db);
 
 app.listen(PORT, () => {
