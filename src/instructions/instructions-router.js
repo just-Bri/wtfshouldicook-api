@@ -1,6 +1,6 @@
 const express = require("express");
 // const xss = require("xss");
-const InstructionsService = require("./instructionss-service");
+const InstructionsService = require("./instructions-service");
 
 const instructionsRouter = express.Router();
 // const jsonParser = express.json();
