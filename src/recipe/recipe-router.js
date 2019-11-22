@@ -49,6 +49,7 @@ recipeRouter.route("/").post((req, res, next) => {
   RecipeService.postRecipe(db, newRec)
     .then(() => {
       res
+        .setHeader('Access-Control-Allow-Origin', '*')
         .status(201)
         .location("/")
         .json(serializeRecipe(newRec));
