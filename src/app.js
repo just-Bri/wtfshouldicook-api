@@ -33,9 +33,13 @@ app.get("/", (req, res) => {
   res.send("Hello, world!");
 });
 
-app.use("/api/recipe", RecipeRouter);
+// app.use("/api/recipe", RecipeRouter);
 app.use("/api/ingredient", IngredientRouter);
 app.use("/api/instruction", InstructionRouter);
+
+app.post("/api/recipe", (req, res) => {
+  res.send("app.post inside app.js");
+});
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
