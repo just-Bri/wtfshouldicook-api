@@ -20,4 +20,12 @@ VALUES
   (1, 2, 'enough'),
   (1, 3, '1 jar');
 
+INSERT into
+  instructions (recipe_id, step_number, instructions)
+VALUES
+  (1, 1, 'do stuff'),
+  (1, 2, 'do more stuff'),
+  (1, 3, 'do more more stuff'),
+  (1, 4, 'do more more more stuff');
+
 COMMIT;
