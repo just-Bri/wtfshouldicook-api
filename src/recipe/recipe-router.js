@@ -7,13 +7,14 @@ const jsonParser = express.json();
 
 const serializeRecipe = recipe => ({
   name: xss(recipe.name),
-  prep_time = xss(recipe.prep_time),
-  cook_time = xss(recipe.cook_time),
-  picture_url = xss(recipe.picture_url),
-  cuisine = xss(recipe.cuisine)
-})
-const db = req.app.get("db");
+  prep_time: xss(recipe.prep_time),
+  cook_time: xss(recipe.cook_time),
+  picture_url: xss(recipe.picture_url),
+  cuisine: xss(recipe.cuisine)
+});
+
 recipeRouter.route("/:id").get((req, res, next) => {
+  const db = req.app.get("db");
   RecipeService.getById(db, req.params.id)
     .then(recipe => {
       res.json(recipe);
@@ -21,6 +22,7 @@ recipeRouter.route("/:id").get((req, res, next) => {
     .catch(next);
 });
 recipeRouter.route("/").post((req, res, next) => {
+  const db = req.app.get("db");
   const {
     name = recipeDetails[0].name,
     prep_time = recipeDetails[0].prep_time,
@@ -29,10 +31,10 @@ recipeRouter.route("/").post((req, res, next) => {
     cuisine = recipeDetails[0].cuisine,
     complexity = recipeDetails[0].complexity,
     ingredients = recipeIngredients.forEach(item => {
-      return {name = item.name, amount = item.amount}
+      return { name: item.name, amount: item.amount };
     }),
     instructions = recipeInstructions.forEach(item => {
-      return {step_number = item.step_number, instructions = item.instructions}
+      return { step_number: item.step_number, instructions: item.instructions };
     })
   } = req.body;
   const newRec = {
@@ -45,7 +47,7 @@ recipeRouter.route("/").post((req, res, next) => {
     ingredients,
     instructions
   };
-  
+
   RecipeService.postRecipe(db, newRec)
     .then(() => {
       res
