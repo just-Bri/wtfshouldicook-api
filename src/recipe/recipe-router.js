@@ -22,8 +22,8 @@ recipeRouter.route("/:id").get((req, res, next) => {
     .catch(next);
 });
 recipeRouter.route("/").post((req, res, next) => {
-  console.log("post recieved, req.body = " + req.body);
   const db = req.app.get("db");
+  console.log("post recieved, req.body = " + req.body);
   const {
     name = recipeDetails[0].name,
     prep_time = recipeDetails[0].prep_time,
