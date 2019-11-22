@@ -38,7 +38,7 @@ app.use("/api/ingredient", IngredientRouter);
 app.use("/api/instruction", InstructionRouter);
 
 app.post("/api/recipe", (req, res) => {
-  res.send("app.post inside app.js");
+  res.status(200).send("app.post inside app.js");
 });
 
 app.use(function errorHandler(error, req, res, next) {
