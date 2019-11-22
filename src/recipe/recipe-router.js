@@ -19,7 +19,7 @@ recipeRouter
     res.status(200).send("testing");
   })
   .post((req, res, next) => {
-    res.status(200).send(req.body);
+    res.status(200);
     // const db = req.app.get("db");
     // console.log("post recieved, req.body = " + req.body);
     // const {
