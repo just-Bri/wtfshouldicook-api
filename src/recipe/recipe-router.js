@@ -18,8 +18,8 @@ recipeRouter
   .get((req, res, next) => {
     res.status(200).send("testing /api/recipe GET");
   })
-  .post((req, res, next) => {
-    res.status(200).send("testing /api/recipe/ POST");
+  .post((req, res) => {
+    res.status(200).send("testing /api/recipe POST");
   });
 recipeRouter.route("/:id").get((req, res, next) => {
   const db = req.app.get("db");
