@@ -1,5 +1,6 @@
 require("dotenv").config();
 const express = require("express");
+const bodyParser = require("body-parser");
 const morgan = require("morgan");
 const cors = require("cors");
 const helmet = require("helmet");
@@ -15,6 +16,7 @@ const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 app.use(morgan(morganOption));
 app.use(helmet());
 app.use(cors());
+app.use(bodyParser());
 
 app.get("/", (req, res) => {
   res.send("Hello, world!");
