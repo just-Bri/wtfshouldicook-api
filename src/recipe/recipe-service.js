@@ -10,6 +10,7 @@ const RecipeService = {
   // },
   postRecipe(db, recipe) {
     console.log(recipe);
+    return recipe;
     // return db.insert(recipe).into("recipes");
   }
 };
