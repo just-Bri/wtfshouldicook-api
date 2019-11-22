@@ -1,13 +1,13 @@
 const express = require("express");
 // const xss = require("xss");
-const InstructionsService = require("./instructions-service");
+const InstructionService = require("./instructions-service");
 
-const instructionsRouter = express.Router();
+const instructionRouter = express.Router();
 // const jsonParser = express.json();
 
-instructionsRouter.route("/:recipe_id").get((req, res, next) => {
+instructionRouter.route("/:recipe_id").get((req, res, next) => {
   const db = req.app.get("db");
-  InstructionsService.getByRecipeId(db, req.params.recipe_id)
+  InstructionService.getByRecipeId(db, req.params.recipe_id)
     .then(instructions => {
       console.log(instructions);
       res.json(instructions);
@@ -15,4 +15,4 @@ instructionsRouter.route("/:recipe_id").get((req, res, next) => {
     .catch(next);
 });
 
-module.exports = instructionsRouter;
+module.exports = instructionRouter;

@@ -3,10 +3,10 @@ const InstructionService = {
     return db.select("*").from("instructions");
   },
   getByRecipeId(db, recipe_id) {
-    return db("recipe_instructions")
+    return db("recipe_ingredients")
       .join(
         "instructions",
-        "recipe_instructions.instruction_id",
+        "recipe_ingredients.instruction_id",
         "instructions.id"
       )
       .select("ingredient_id AS i_id", "step_number", "instructions")
