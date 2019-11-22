@@ -13,14 +13,6 @@ const serializeRecipe = recipe => ({
   cuisine: xss(recipe.cuisine)
 });
 
-recipeRouter.route("/:id").get((req, res, next) => {
-  const db = req.app.get("db");
-  RecipeService.getById(db, req.params.id)
-    .then(recipe => {
-      res.json(recipe);
-    })
-    .catch(next);
-});
 recipeRouter.route("/").post((req, res, next) => {
   const db = req.app.get("db");
   console.log("post recieved, req.body = " + req.body);
@@ -58,6 +50,14 @@ recipeRouter.route("/").post((req, res, next) => {
         .status(201)
         .location("/")
         .json(serializeRecipe(newRec));
+    })
+    .catch(next);
+});
+recipeRouter.route("/:id").get((req, res, next) => {
+  const db = req.app.get("db");
+  RecipeService.getById(db, req.params.id)
+    .then(recipe => {
+      res.json(recipe);
     })
     .catch(next);
 });
