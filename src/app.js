@@ -7,6 +7,7 @@ const { NODE_ENV } = require("./config");
 
 const RecipeRouter = require("./recipe/recipe-router");
 const IngredientRouter = require("./ingredients/ingredients-router");
+const InstructionRouter = require("./instructions/instructions-router");
 const app = express();
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
@@ -21,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/api/recipe", RecipeRouter);
 app.use("/api/ingredient", IngredientRouter);
+app.use("/api/instruction", InstructionRouter);
 
 app.use(function errorHandler(error, req, res, next) {
   let response;
