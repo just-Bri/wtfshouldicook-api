@@ -19,6 +19,8 @@ const RecipeService = {
   postRecipeInstructions(db, ins, id) {
     console.log("ins: " + Object.entries(ins[0]));
     console.log("id: " + id);
+    let instrucs = Object.entries(ins);
+    instrucs.forEach(item => console.log(item));
   }
 };
 
