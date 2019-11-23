@@ -17,15 +17,8 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
-    let stuff;
-    ins.instructions.forEach((item, i) => {
-      stuff = {
-        recipe_id: id,
-        step_number: i,
-        instructions: item.step
-      };
-    });
-    console.log("stuff" + stuff);
+    console.log("ins: " + ins);
+    console.log("id: " + id);
     return stuff;
   }
 };
