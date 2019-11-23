@@ -10,7 +10,8 @@ const serializeRecipe = recipe => ({
   prep_time: xss(recipe.prep_time),
   cook_time: xss(recipe.cook_time),
   picture_url: xss(recipe.picture_url),
-  cuisine: xss(recipe.cuisine)
+  cuisine: xss(recipe.cuisine),
+  complexity: xss(recipe.complexity)
 });
 
 recipeRouter

@@ -16,7 +16,9 @@ const RecipeService = {
         name: recipe.name,
         picture_url: recipe.picture_url,
         prep_time: recipe.prep_time,
-        cook_time: recipe.cook_time
+        cook_time: recipe.cook_time,
+        cuisine: recipe.cuisine,
+        complexity: recipe.complexity
       })
       .into("recipes");
   }
