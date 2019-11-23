@@ -17,11 +17,12 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
-    console.log("ins: " + ins);
+    // console.log("ins: " + ins);
     console.log("id: " + id);
-    console.log(ins[0].instructions);
+    // console.log(ins[0].instructions);
     return ins.forEach((item, i) => {
       console.log(item.instructions);
+      console.log(id);
       db("instructions")
         .insert({
           recipe_id: id,
