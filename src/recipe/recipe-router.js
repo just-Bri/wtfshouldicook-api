@@ -23,7 +23,7 @@ recipeRouter
     RecipeService.postRecipe(db, req.body).then(response => {
       RecipeService.postRecipeInstructions(db, req.body, response).then(
         blah => {
-          res.status(201).send(console.log(blah));
+          res.status(201).send(console.log("blah: " + blah));
         }
       );
       // res.status(201).send(console.log(response));
