@@ -20,6 +20,7 @@ recipeRouter
   })
   .post((req, res, next) => {
     console.log(req.body);
+    RecipeService.postRecipe(req.body);
     res
       .status(201)
       .location("/")
