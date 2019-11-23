@@ -19,7 +19,6 @@ const RecipeService = {
   postRecipeInstructions(db, ins, id) {
     console.log("ins: " + ins);
     console.log("id: " + id);
-    return stuff;
   }
 };
 
