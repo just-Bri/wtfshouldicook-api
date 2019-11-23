@@ -13,13 +13,12 @@ const RecipeService = {
     console.log("from service recipe: " + jsonRecipe);
     // return db.insert(recipe).into("recipes");
     return db("recipes").insert({
-      jsonRecipe
-      // name: jsonRecipe.name,
       // picture_url: jsonRecipe.picture_url,
-      // prep_time: jsonRecipe.prep_time,
-      // cook_time: jsonRecipe.cook_time,
-      // cuisine: jsonRecipe.cuisine,
-      // complexity: jsonRecipe.complexity
+      name: jsonRecipe.name,
+      prep_time: jsonRecipe.prep_time,
+      cook_time: jsonRecipe.cook_time,
+      cuisine: jsonRecipe.cuisine,
+      complexity: jsonRecipe.complexity
     });
   }
 };

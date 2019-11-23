@@ -22,11 +22,12 @@ recipeRouter
   .post((req, res, next) => {
     // console.log(req.body);
     const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body);
-    res
-      .status(201)
-      .location("/")
-      .json(serializeRecipe(req.body));
+    RecipeService.postRecipe(db, req.body).then(recipe => {
+      res
+        .status(201)
+        .location("/")
+        .json(serializeRecipe(recipe));
+    });
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
