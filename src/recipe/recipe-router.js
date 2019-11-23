@@ -21,10 +21,8 @@ recipeRouter
   .post((req, res, next) => {
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body).then(response => {
-      console.log(response);
       RecipeService.postRecipeInstructions(db, req.body, response);
     });
-    // res.status(201).send(console.log(response));
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
