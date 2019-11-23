@@ -25,8 +25,7 @@ const RecipeService = {
       console.log("inst: " + item.instructions);
       return db("instructions")
         .insert({
-          recipe_id: 9999,
-          // parseInt(id, 10),
+          recipe_id: parseInt(id, 10),
           step_number: i,
           instructions: item.instructions
         })

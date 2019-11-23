@@ -28,8 +28,8 @@ recipeRouter
           response
         );
       })
-      .then(() => {
-        res.status(201).send("posted");
+      .then(response => {
+        res.status(201).send(response);
       })
       .catch(next);
   });
