@@ -21,7 +21,7 @@ const RecipeService = {
     console.log("id: " + id);
     let blah = [];
     Object.entries(ins).forEach(item => blah.push(item));
-    console.log(id + " line 24 " + Object.values(blah));
+    console.log(id + " line 24 " + Object.values(blah[0]));
     // return db("instructions").insert({}).returning("*")
   }
 };
