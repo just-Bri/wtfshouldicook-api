@@ -28,9 +28,10 @@ const RecipeService = {
           });
         })
         .then(
-          console.log().then(db("instructions").insert({ resp }))
+          console.log()
           // return ;
         )
+        .then(db("instructions").insert({ resp }))
     );
   }
 };
