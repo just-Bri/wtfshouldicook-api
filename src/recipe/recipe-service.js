@@ -5,10 +5,10 @@ const RecipeService = {
   getById(db, id) {
     return db("recipes").where({ id });
   },
-  // getAllById(db, id) {
-  //   return db();
-  // },
   postRecipe(db, recipe) {
+    let rIns = recipe.instructions.forEach((item, i) => {
+      return { recipe_id: id, step_number: i, instructions: item.step };
+    });
     return db("recipes")
       .insert({
         name: recipe.name,
@@ -18,13 +18,7 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .then(
-        db("instructions").insert(
-          recipe.instructions.forEach((item, i) => {
-            return { recipe_id: id, step_number: i, instructions: item.step };
-          })
-        )
-      );
+      .then(db("instructions").insert({ rIns }));
   }
 };
 
