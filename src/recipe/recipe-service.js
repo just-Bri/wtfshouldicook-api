@@ -15,10 +15,10 @@ const RecipeService = {
     return db("recipes").insert({
       name: jsonRecipe.name,
       // picture_url: jsonRecipe.picture_url,
-      prep_time: parseInt(jsonRecipe.prep_time, 10),
-      cook_time: parseInt(jsonRecipe.cook_time, 10),
+      prep_time: jsonRecipe.prep_time,
+      cook_time: jsonRecipe.cook_time,
       cuisine: jsonRecipe.cuisine,
-      complexity: parseInt(jsonRecipe.complexity, 10)
+      complexity: jsonRecipe.complexity
     });
   }
 };
