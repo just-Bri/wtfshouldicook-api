@@ -14,7 +14,7 @@ const RecipeService = {
     return db
       .insert({
         name: recipe.name,
-        picture_url: recipe.picture_url,
+        // picture_url: recipe.picture_url,
         prep_time: recipe.prep_time,
         cook_time: recipe.cook_time,
         cuisine: recipe.cuisine,

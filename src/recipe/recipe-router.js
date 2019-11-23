@@ -9,7 +9,7 @@ const serializeRecipe = recipe => ({
   name: xss(recipe.name),
   prep_time: xss(recipe.prep_time),
   cook_time: xss(recipe.cook_time),
-  picture_url: xss(recipe.picture_url),
+  // picture_url: xss(recipe.picture_url),
   cuisine: xss(recipe.cuisine),
   complexity: xss(recipe.complexity)
 });
