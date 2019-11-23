@@ -26,8 +26,8 @@ recipeRouter
           db,
           req.body.instructions,
           response
-        ).then(response => {
-          res.status(201).send(response);
+        ).then(resp => {
+          res.status(201).send(resp);
         });
       })
       .catch(next);
