@@ -26,7 +26,7 @@ recipeRouter
           db,
           req.body.instructions,
           response
-        ).then(response => console.log(response));
+        ).then(console.log);
       })
       .then(resp => {
         res.status(201).send(resp);
