@@ -25,8 +25,8 @@ const RecipeService = {
         instructions: item.step
       };
     });
-    // return stuff
     console.log("stuff" + stuff);
+    return stuff;
   }
 };
 
