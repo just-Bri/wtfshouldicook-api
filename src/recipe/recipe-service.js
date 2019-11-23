@@ -15,8 +15,7 @@ const RecipeService = {
         cuisine: recipe.cuisine,
         complexity: recipe.complexity
       })
-      .returning("id")
-      .then(console.log);
+      .returning("id");
   }
   // postRecipeInstructions(db, ins) {
   //   .then(response => {
