@@ -20,9 +20,7 @@ recipeRouter
   })
   .post((req, res, next) => {
     const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body).then(() => {
-      res.status(201).location("/");
-    });
+    return RecipeService.postRecipe(db, req.body).then(() => res.status(201));
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
