@@ -21,7 +21,7 @@ const RecipeService = {
     console.log("id: " + id);
     // console.log(ins[0].instructions);
     return ins.forEach((item, i) => {
-      db("instructions")
+      return db("instructions")
         .insert({
           recipe_id: parseInt(id, 10),
           step_number: i + 1,
