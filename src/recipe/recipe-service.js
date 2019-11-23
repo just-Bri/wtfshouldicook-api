@@ -16,7 +16,8 @@ const RecipeService = {
       })
       .returning("id");
   },
-  postRecipeInstructions(db, ins, id) {
+  postRecipeInstructions(ins, id) {
+    const db = req.app.get("db");
     // ins = recipe instructions array
     // id = recipe_id coming from postRecipe return
     // return ins.forEach((item, i) => {
