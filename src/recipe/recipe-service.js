@@ -27,11 +27,8 @@ const RecipeService = {
             };
           });
         })
-        .then(
-          console.log()
-          // return ;
-        )
-        .then(db("instructions").insert({ resp }))
+        .then(console.log())
+      // .then(db("instructions").insert({ resp }))
     );
   }
 };
