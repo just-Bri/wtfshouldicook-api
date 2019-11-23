@@ -24,7 +24,7 @@ const RecipeService = {
         .insert({
           recipe_id: id,
           step_number: i,
-          instructions: item.instructions
+          instructions: item[0].instructions
         })
         .returning("*")
     );
