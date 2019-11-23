@@ -22,7 +22,7 @@ const RecipeService = {
     // let instrucs = Object.entries(ins);
     let blah = [];
     Object.entries(ins).forEach(item => blah.push(item));
-    console.log(blah);
+    console.log("blah: " + blah);
   }
 };
 
