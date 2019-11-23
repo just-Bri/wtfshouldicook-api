@@ -20,13 +20,15 @@ recipeRouter
   })
   .post((req, res, next) => {
     const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body).then(response => {
-      RecipeService.postRecipeInstructions(
-        db,
-        req.body.instructions,
-        response
-      ).then(out => console.log(out));
-    });
+    RecipeService.postRecipe(db, req.body)
+      .then(response => {
+        RecipeService.postRecipeInstructions(
+          db,
+          req.body.instructions,
+          response
+        );
+      })
+      .then(console.log);
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
