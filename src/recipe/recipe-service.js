@@ -12,7 +12,7 @@ const RecipeService = {
     let jsonRecipe = JSON.stringify(recipe);
     console.log("from service recipe: " + jsonRecipe);
     // return db.insert(recipe).into("recipes");
-    return db("recipes)").insert({
+    return db("recipes").insert({
       name: jsonRecipe.name,
       // picture_url: jsonRecipe.picture_url,
       prep_time: jsonRecipe.prep_time,
