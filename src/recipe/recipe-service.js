@@ -9,16 +9,14 @@ const RecipeService = {
   //   return db();
   // },
   postRecipe(db, recipe) {
-    let jsonRecipe = JSON.stringify(recipe);
-    console.log("from service recipe: " + jsonRecipe);
-    // return db.insert(recipe).into("recipes");
+    // let jsonRecipe = JSON.stringify(recipe);
+    // console.log("from service recipe: " + jsonRecipe);
     return db("recipes").insert({
-      // picture_url: jsonRecipe.picture_url,
-      name: jsonRecipe.name,
-      prep_time: jsonRecipe.prep_time,
-      cook_time: jsonRecipe.cook_time,
-      cuisine: jsonRecipe.cuisine,
-      complexity: jsonRecipe.complexity
+      name: recipe.name,
+      prep_time: recipe.prep_time,
+      cook_time: recipe.cook_time,
+      cuisine: recipe.cuisine,
+      complexity: recipe.complexity
     });
   }
 };
