@@ -23,10 +23,7 @@ recipeRouter
     // console.log(req.body);
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body).then(recipe => {
-      res
-        .status(201)
-        .location("/")
-        .json(serializeRecipe(recipe));
+      res.status(201);
     });
   });
 
