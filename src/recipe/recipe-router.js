@@ -19,8 +19,9 @@ recipeRouter
     res.status(200).send("testing /api/recipe GET");
   })
   .post((req, res, next) => {
-    console.log(req.body);
-    RecipeService.postRecipe(req.body);
+    // console.log(req.body);
+    const db = req.app.get("db");
+    RecipeService.postRecipe(db, req.body);
     res
       .status(201)
       .location("/")
