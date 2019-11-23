@@ -11,16 +11,14 @@ const RecipeService = {
   postRecipe(db, recipe) {
     // console.log("from service recipe: " + JSON.stringify(recipe));
     // return db.insert(recipe).into("recipes");
-    return db
-      .insert({
-        name: recipe.name,
-        // picture_url: recipe.picture_url,
-        prep_time: recipe.prep_time,
-        cook_time: recipe.cook_time,
-        cuisine: recipe.cuisine,
-        complexity: recipe.complexity
-      })
-      .into("recipes");
+    return db("recipes)").insert({
+      name: recipe.name,
+      // picture_url: recipe.picture_url,
+      prep_time: recipe.prep_time,
+      cook_time: recipe.cook_time,
+      cuisine: recipe.cuisine,
+      complexity: recipe.complexity
+    });
   }
 };
 
