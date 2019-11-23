@@ -21,7 +21,11 @@ recipeRouter
   .post((req, res, next) => {
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body).then(response => {
-      RecipeService.postRecipeInstructions(db, req.body.instructions, response);
+      RecipeService.postRecipeInstructions(
+        db,
+        req.body.instructions,
+        response
+      ).then(out => console.log(out));
     });
   });
 
