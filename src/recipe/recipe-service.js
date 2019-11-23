@@ -9,7 +9,7 @@ const RecipeService = {
   //   return db();
   // },
   postRecipe(db, recipe) {
-    return console.log("from service recipe: " + recipe);
+    return console.log("from service recipe: " + JSON.stringify(recipe));
     // return db.insert(recipe).into("recipes");
   }
 };
