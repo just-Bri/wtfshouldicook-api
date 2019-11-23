@@ -19,7 +19,7 @@ const RecipeService = {
       .then(([id]) => {
         rIns = recipe.instructions.forEach((item, i) => {
           return {
-            recipe_id: [id],
+            recipe_id: id,
             step_number: i,
             instructions: item.step
           };
