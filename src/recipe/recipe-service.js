@@ -17,10 +17,11 @@ const RecipeService = {
         cuisine: recipe.cuisine,
         complexity: recipe.complexity
       })
+      .returning("id")
       .then(
         db("instructions").insert(
           recipe.instructions.forEach((item, i) => {
-            return { step_number: i, instructions: item.step };
+            return { recipe_id: id, step_number: i, instructions: item.step };
           })
         )
       );
