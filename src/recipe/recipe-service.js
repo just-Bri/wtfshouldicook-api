@@ -19,18 +19,17 @@ const RecipeService = {
         .returning("id")
         // .then(console.log)
         .then(response => {
-          return recipe.instructions
-            .forEach((item, i) => {
-              return {
-                recipe_id: response,
-                step_number: i,
-                instructions: item.step
-              };
-            })
-            .then(resp => {
-              console.log(resp);
-              return db("instructions").insert({ resp });
-            });
+          return recipe.instructions.forEach((item, i) => {
+            return {
+              recipe_id: response,
+              step_number: i,
+              instructions: item.step
+            };
+          });
+        })
+        .then(resp => {
+          console.log(resp);
+          return db("instructions").insert({ resp });
         })
     );
   }
