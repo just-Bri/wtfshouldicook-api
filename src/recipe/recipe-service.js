@@ -19,7 +19,7 @@ const RecipeService = {
   postRecipeInstructions(db, ins, id) {
     let stuff = ins.instructions.forEach((item, i) => {
       return {
-        recipe_id: response,
+        recipe_id: id,
         step_number: i,
         instructions: item.step
       };
