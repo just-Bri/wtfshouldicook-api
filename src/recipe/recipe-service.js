@@ -21,11 +21,11 @@ const RecipeService = {
     console.log("id: " + id);
     console.log(ins[0].instructions);
     return ins.forEach((item, i) => {
-      console.log("i: " + i);
+      console.log(item.instructions);
       db("instructions")
         .insert({
           recipe_id: id,
-          step_number: i,
+          step_number: i + 1,
           instructions: item.instructions
         })
         .returning("*");
