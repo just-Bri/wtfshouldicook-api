@@ -6,7 +6,7 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
-    return db("recipes")
+    return db
       .insert({
         name: recipe.name,
         prep_time: recipe.prep_time,
@@ -15,13 +15,14 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .then(
-        (rIns = recipe.instructions
-          .forEach((item, i) => {
-            return { recipe_id: id, step_number: i, instructions: item.step };
-          })
-          .then(db("instructions").insert({ rIns })))
-      );
+      .into("recipes");
+    // .then(
+    //   (rIns = recipe.instructions
+    //     .forEach((item, i) => {
+    //       return { recipe_id: id, step_number: i, instructions: item.step };
+    //     })
+    //     .then(db("instructions").insert({ rIns })))
+    // );
   }
 };
 
