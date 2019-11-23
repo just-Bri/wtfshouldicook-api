@@ -19,7 +19,7 @@ const RecipeService = {
   postRecipeInstructions(db, ins, id) {
     console.log("ins: " + ins);
     console.log("id: " + id);
-    ins.forEach((item, i) =>
+    return ins.forEach((item, i) =>
       db("instructions")
         .insert({
           recipe_id: id,
