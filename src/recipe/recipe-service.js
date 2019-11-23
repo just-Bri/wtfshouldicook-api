@@ -20,8 +20,9 @@ const RecipeService = {
     console.log("ins: " + Object.entries(ins[0]));
     console.log("id: " + id);
     // let instrucs = Object.entries(ins);
-    let instrucs = Object.entries(ins).forEach(item => item);
-    console.log(instrucs);
+    let blah = [];
+    Object.entries(ins).forEach(item => blah.push(item));
+    console.log(blah);
   }
 };
 
