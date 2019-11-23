@@ -29,7 +29,7 @@ const RecipeService = {
           step_number: i,
           instructions: item.instructions
         })
-        .returning("recipe_id");
+        .returning("id");
     });
   }
 };

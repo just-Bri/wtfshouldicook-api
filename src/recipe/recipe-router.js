@@ -26,10 +26,9 @@ recipeRouter
           db,
           req.body.instructions,
           response
-        );
-      })
-      .then(response => {
-        res.status(201).send(response);
+        ).then(response => {
+          res.status(201).send(response);
+        });
       })
       .catch(next);
   });
