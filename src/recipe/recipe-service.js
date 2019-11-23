@@ -15,7 +15,8 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .into("recipes");
+      .into("recipes")
+      .then(console.log(id));
     // .then(
     //   (rIns = recipe.instructions
     //     .forEach((item, i) => {
