@@ -26,8 +26,8 @@ const RecipeService = {
               instructions: item.step
             };
           })
-          .then(response => {
-            return db("instructions").insert({ rIns });
+          .then(resp => {
+            return db("instructions").insert({ resp });
           });
       });
   }
