@@ -28,7 +28,6 @@ recipeRouter
           response
         );
       })
-      .then(rec_id => console.log(rec_id))
       .then(() => {
         res.status(201).send("posted");
       })

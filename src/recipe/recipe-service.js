@@ -20,10 +20,13 @@ const RecipeService = {
     // ins = recipe instructions array
     // id = recipe_id coming from postRecipe return
     return ins.forEach((item, i) => {
+      console.log("rec_id: " + id);
+      console.log("step: " + i);
+      console.log("inst: " + item.instructions);
       return db("instructions")
         .insert({
           recipe_id: parseInt(id, 10),
-          step_number: i + 1,
+          step_number: i,
           instructions: item.instructions
         })
         .returning("recipe_id");
