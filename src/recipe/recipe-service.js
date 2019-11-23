@@ -31,13 +31,11 @@ const RecipeService = {
     //     })
     //     .returning("id");
     // });
-    return db("instructions")
-      .insert({
-        recipe_id: 1,
-        step_number: 50,
-        instructions: "test"
-      })
-      .returning("id");
+    return db("instructions").insert({
+      recipe_id: 1,
+      step_number: 50,
+      instructions: "test"
+    });
   }
 };
 
