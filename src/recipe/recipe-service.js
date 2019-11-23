@@ -19,12 +19,11 @@ const RecipeService = {
   postRecipeInstructions(db, ins, id) {
     console.log("ins: " + ins);
     console.log("id: " + id);
-    // console.log("ins[0]ins: " + ins[0].instructions);
-    ins.forEach(item => console.log(item.instructions));
-    // let blah = [];
-    // Object.entries(ins).forEach(item => blah.push(item));
-    // console.log(id + " line 24 " + Object.values(blah[0]));
-    // return db("instructions").insert({}).returning("*")
+    ins.forEach((item, i) =>
+      db("instructions")
+        .insert({ step_number: i, instructions: item.instructions })
+        .returning("*")
+    );
   }
 };
 
