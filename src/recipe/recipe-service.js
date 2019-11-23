@@ -26,7 +26,7 @@ const RecipeService = {
         .insert({
           recipe_id: parseInt(id, 10),
           step_number: i + 1,
-          instructions: item.instructions
+          instructions: item.instructions.toString()
         })
         .returning("*");
     });
