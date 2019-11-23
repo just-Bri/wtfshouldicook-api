@@ -6,7 +6,7 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
-    console.log(recipe);
+    // console.log(recipe);
     return db("recipes")
       .insert({
         name: recipe.name,
@@ -16,7 +16,7 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .then(([id]) => this.getById(db, id));
+      .then(([id]) => this.getById(db, [id]));
     // .then(([id]) => {
     //   rIns = recipe.instructions.forEach((item, i) => {
     //     return {
