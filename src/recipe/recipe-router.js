@@ -22,7 +22,7 @@ recipeRouter
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body)
       .then(id => {
-        RecipeService.postRecipeInstructions(req.body.instructions, id);
+        RecipeService.postRecipeInstructions(db, req.body.instructions, id);
       })
       .then(resp => {
         res.status(201).send(resp);
