@@ -9,18 +9,21 @@ const RecipeService = {
   //   return db();
   // },
   postRecipe(db, recipe) {
-    // let jsonRecipe = JSON.stringify(recipe);
-    // console.log("from service recipe: " + jsonRecipe);
-    let instructions = recipe.instructions;
-    console.log(instructions);
-    return db("recipes").insert({
-      name: recipe.name,
-      prep_time: recipe.prep_time,
-      cook_time: recipe.cook_time,
-      cuisine: recipe.cuisine,
-      complexity: recipe.complexity
-    });
-    // .then(db("instructions").insert({}));
+    return db("recipes")
+      .insert({
+        name: recipe.name,
+        prep_time: recipe.prep_time,
+        cook_time: recipe.cook_time,
+        cuisine: recipe.cuisine,
+        complexity: recipe.complexity
+      })
+      .then(
+        db("instructions").insert(
+          recipe.instructions.forEach((item, i) => {
+            return { step_number: i, instructions: item.step };
+          })
+        )
+      );
   }
 };
 
