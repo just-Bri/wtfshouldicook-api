@@ -16,17 +16,20 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .then(console.log);
-    // .then(([id]) => {
-    //   rIns = recipe.instructions.forEach((item, i) => {
-    //     return {
-    //       recipe_id: id,
-    //       step_number: i,
-    //       instructions: item.step
-    //     };
-    //   });
-    // })
-    // .then(db("instructions").insert({ rIns }));
+      .then(console.log)
+      .then(response => {
+        rIns = recipe.instructions
+          .forEach((item, i) => {
+            return {
+              recipe_id: response,
+              step_number: i,
+              instructions: item.step
+            };
+          })
+          .then(response => {
+            return db("instructions").insert({ rIns });
+          });
+      });
   }
 };
 
