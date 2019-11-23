@@ -9,7 +9,6 @@ const serializeRecipe = recipe => ({
   name: xss(recipe.name),
   prep_time: xss(recipe.prep_time),
   cook_time: xss(recipe.cook_time),
-  // picture_url: xss(recipe.picture_url),
   cuisine: xss(recipe.cuisine),
   complexity: xss(recipe.complexity)
 });
@@ -20,9 +19,8 @@ recipeRouter
     res.status(200).send("testing /api/recipe GET");
   })
   .post((req, res, next) => {
-    // console.log(req.body);
     const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body).then(recipe => {
+    RecipeService.postRecipe(db, serializeRecipe(recipe)).then(recipe => {
       res.status(201);
     });
   });

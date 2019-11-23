@@ -11,13 +11,7 @@ const RecipeService = {
   postRecipe(db, recipe) {
     // let jsonRecipe = JSON.stringify(recipe);
     // console.log("from service recipe: " + jsonRecipe);
-    return db("recipes").insert({
-      name: recipe.name,
-      prep_time: recipe.prep_time,
-      cook_time: recipe.cook_time,
-      cuisine: recipe.cuisine,
-      complexity: recipe.complexity
-    });
+    return db("recipes").insert({ recipe });
   }
 };
 
