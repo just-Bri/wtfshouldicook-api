@@ -7,14 +7,17 @@ const RecipeService = {
   },
   postRecipe(db, recipe) {
     return db("recipes")
-      .insert({
-        name: recipe.name,
-        prep_time: recipe.prep_time,
-        cook_time: recipe.cook_time,
-        cuisine: recipe.cuisine,
-        complexity: recipe.complexity
-      })
-      .returning("*");
+      .insert(
+        {
+          name: recipe.name,
+          prep_time: recipe.prep_time,
+          cook_time: recipe.cook_time,
+          cuisine: recipe.cuisine,
+          complexity: recipe.complexity
+        },
+        id
+      )
+      .returning(id);
     // .then(
     //   (rIns = recipe.instructions
     //     .forEach((item, i) => {
