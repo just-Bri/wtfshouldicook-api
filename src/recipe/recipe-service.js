@@ -16,7 +16,7 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id")
-      .then(([id]) => this.getById(db, [id]));
+      .then(([id]) => this.getById(db, parseInt(id, 10)));
     // .then(([id]) => {
     //   rIns = recipe.instructions.forEach((item, i) => {
     //     return {
