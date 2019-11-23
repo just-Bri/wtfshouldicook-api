@@ -19,6 +19,7 @@ recipeRouter
     res.status(200).send("testing /api/recipe GET");
   })
   .post((req, res, next) => {
+    console.log(req.body);
     res
       .status(201)
       .location("/")
