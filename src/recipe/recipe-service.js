@@ -23,16 +23,13 @@ const RecipeService = {
       // console.log("rec_id: " + id);
       // console.log("step: " + i);
       // console.log("inst: " + item.instructions);
-      db.raw(
-        `insert into instructions (recipe_id, step_number, instructions) values (${id}, ${i}, ${item.instructions});`
-      );
-      // ("instructions")
-      // .insert({
-      //   recipe_id: id,
-      //   step_number: i,
-      //   instructions: item.instructions
-      // })
-      // .returning("id");
+      db("instructions")
+        .insert({
+          recipe_id: 1,
+          step_number: 50,
+          instructions: "test"
+        })
+        .returning("id");
     });
   }
 };
