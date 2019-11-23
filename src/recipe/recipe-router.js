@@ -30,7 +30,8 @@ recipeRouter
       })
       .then(() => {
         res.status(201).send("posted");
-      });
+      })
+      .catch(next);
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
