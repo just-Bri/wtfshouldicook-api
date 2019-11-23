@@ -7,29 +7,32 @@ const RecipeService = {
   },
   postRecipe(db, recipe) {
     // console.log(recipe);
-    return db("recipes")
-      .insert({
-        name: recipe.name,
-        prep_time: recipe.prep_time,
-        cook_time: recipe.cook_time,
-        cuisine: recipe.cuisine,
-        complexity: recipe.complexity
-      })
-      .returning("id")
-      .then(console.log)
-      .then(response => {
-        rIns = recipe.instructions
-          .forEach((item, i) => {
-            return {
-              recipe_id: response,
-              step_number: i,
-              instructions: item.step
-            };
-          })
-          .then(resp => {
-            return db("instructions").insert({ resp });
-          });
-      });
+    return (
+      db("recipes")
+        .insert({
+          name: recipe.name,
+          prep_time: recipe.prep_time,
+          cook_time: recipe.cook_time,
+          cuisine: recipe.cuisine,
+          complexity: recipe.complexity
+        })
+        .returning("id")
+        // .then(console.log)
+        .then(response => {
+          return recipe.instructions
+            .forEach((item, i) => {
+              return {
+                recipe_id: response,
+                step_number: i,
+                instructions: item.step
+              };
+            })
+            .then(resp => {
+              console.log(resp);
+              return db("instructions").insert({ resp });
+            });
+        })
+    );
   }
 };
 
