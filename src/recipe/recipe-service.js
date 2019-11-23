@@ -6,7 +6,6 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
-    // console.log(recipe);
     return db("recipes")
       .insert({
         name: recipe.name,
@@ -16,17 +15,17 @@ const RecipeService = {
         complexity: recipe.complexity
       })
       .returning("id");
+  },
+  postRecipeInstructions(db, ins, id) {
+    let stuff = ins.instructions.forEach((item, i) => {
+      return {
+        recipe_id: response,
+        step_number: i,
+        instructions: item.step
+      };
+    });
+    console.log(stuff);
   }
-  // postRecipeInstructions(db, ins) {
-  //   .then(response => {
-  //     return recipe.instructions.forEach((item, i) => {
-  //       return {
-  //         recipe_id: response,
-  //         step_number: i,
-  //         instructions: item.step
-  //       };
-  //     });
-  // }
 };
 
 module.exports = RecipeService;
