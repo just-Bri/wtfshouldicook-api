@@ -14,7 +14,7 @@ const IngredientService = {
       .raw(
         `select ingredient_amount, name from recipe_ingredients JOIN ingredients on ingredients.id = recipe_ingredients.ingredient_id where recipe_id = ${recipe_id};`
       )
-      .returning("*");
+      .then(console.log);
   }
 };
 
