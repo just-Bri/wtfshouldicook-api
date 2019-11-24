@@ -18,7 +18,7 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
-    console.log(`inserting recipe ${id} instructions`);
+    // console.log(`inserting recipe ${id} instructions`);
     return Promise.all(
       ins.map((item, i) => {
         return db("instructions")
@@ -32,7 +32,7 @@ const RecipeService = {
     ).then(response => response);
   },
   postRecipeIngredients(db, ing) {
-    console.log(`inserting ${ing}`);
+    // console.log(`inserting ${ing}`);
     return Promise.all(
       ing.map(item => {
         return db("ingredients").insert({
