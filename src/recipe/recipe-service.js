@@ -43,11 +43,13 @@ const RecipeService = {
       })
     ).then(response => response);
   },
-  postRecipeIngredients(db, body, ing_id) {
+  postRecipeIngredients(db, body, id, ing_id) {
     console.log(`db: ${db}`);
     console.log(`body: ${body}`);
+    console.log(`id: ${id}`);
     console.log(`ing_id: ${ing_id}`);
-    console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
+    // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
+    // return Promise.all(ing_id.map(item => {}));
     return "from postRecIng";
   }
 };

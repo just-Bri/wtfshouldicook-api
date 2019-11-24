@@ -28,8 +28,11 @@ recipeRouter
           id
         ).then(id => {
           return Promise.all([
-            RecipeService.postIngredients(db, req.body.ingredients),
-            RecipeService.postRecipeIngredients(db, req.body, id)
+            RecipeService.postIngredients(db, req.body.ingredients).then(
+              ing_id => {
+                RecipeService.postRecipeIngredients(db, req.body, id, ing_id);
+              }
+            )
           ]).then(response => console.log(response));
         });
       })
