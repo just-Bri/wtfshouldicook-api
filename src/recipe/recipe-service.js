@@ -27,7 +27,9 @@ const RecipeService = {
           })
           .returning("id");
       })
-    ).then(response => res.status(201).res.send(response));
+    ).then(response => {
+      return response;
+    });
   }
 };
 
