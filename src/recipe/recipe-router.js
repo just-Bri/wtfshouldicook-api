@@ -28,10 +28,10 @@ recipeRouter
           req.body.instructions,
           id
         ).then(resp => {
-          console.log(`instruction ${resp[0]} added and...`);
+          console.log(`recipe id ${resp[0]}`);
         });
       })
-      .then(res => res.status(201))
+      .then(res => res.status(201).send(`details and instr added`))
       .catch(next);
   });
 
