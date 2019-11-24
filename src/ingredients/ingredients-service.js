@@ -11,7 +11,7 @@ const IngredientService = {
     //   .returning("*")
     //   .then(console.log);
     db.raw(
-      "select  ingredient_amount, name from recipe_ingredients JOIN ingredients on ingredients.id = recipe_ingredients.ingredient_id;"
+      "select ingredient_amount, name from recipe_ingredients JOIN ingredients on ingredients.id = recipe_ingredients.ingredient_id;"
     );
   }
 };
