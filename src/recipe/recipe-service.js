@@ -44,18 +44,19 @@ const RecipeService = {
     ).then(response => response);
   },
   postRecipeIngredients(db, body, id, ing_id) {
-    console.log(`db: ${db}`);
-    console.log(`body: ${body}`);
-    console.log(`id: ${id}`);
-    console.log(`ing_id: ${ing_id}`);
+    // console.log(`db: ${db}`);
+    // console.log(`body: ${body}`);
+    // console.log(`id: ${id}`);
+    // console.log(`ing_id: ${ing_id}`);
     // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
     return Promise.all(
-      body.ingredients.map(i => {
-        console.log(`i -> ing_id: ${Object.values(i)}`);
+      body.ingredients.map(ing => {
+        console.log(`obj val ing: ${Object.values(ing)}`);
+        console.log(`ing.amount: ${ing.amount}`);
         // return db("recipe_ingredients").insert({
         //   recipe_id: id,
         //   ingredient_id: ing_id,
-        //   amount: body.ingredients[i].amount
+        //   amount: ing.amount
         // });
       })
     );
