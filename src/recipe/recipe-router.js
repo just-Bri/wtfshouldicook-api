@@ -26,7 +26,7 @@ recipeRouter
       }),
       RecipeService.postRecipeIngredients(db, req.body.ingredients)
     )
-      .then(response => res.status(201).send(`posted ${response}`))
+      .then(response => res.status(201).json(response))
       .catch(next);
   });
 
