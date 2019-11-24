@@ -24,8 +24,8 @@ recipeRouter
       .then(id => {
         RecipeService.postRecipeInstructions(db, req.body.instructions, id);
       })
-      .then(resp => {
-        res.status(201).send(resp);
+      .then(response => {
+        res.status(201).send(response);
       })
       .catch(next);
   });
