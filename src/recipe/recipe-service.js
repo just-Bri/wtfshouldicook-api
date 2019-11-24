@@ -49,8 +49,17 @@ const RecipeService = {
     console.log(`id: ${id}`);
     console.log(`ing_id: ${ing_id}`);
     // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
-    // return Promise.all(ing_id.map(item => {}));
-    return "from postRecIng";
+    return Promise.all(
+      ing_id.map(item => {
+        console.log(item);
+        // return db("recipe_ingredients").insert({
+        //   recipe_id: id,
+        //   ingredient_id: ing_id,
+        //   amount: body.ingredients[i].amount
+        // });
+      })
+    );
+    // return "from postRecIng";
   }
 };
 
