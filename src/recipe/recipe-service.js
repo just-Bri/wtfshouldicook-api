@@ -20,7 +20,7 @@ const RecipeService = {
     // ins = recipe instructions array
     // id = recipe_id coming from postRecipe return
     return Promise.all(
-      ins.forEach((item, i) => {
+      ins.map((item, i) => {
         // console.log("rec_id: " + id);
         // console.log("step: " + i);
         // console.log("inst: " + item.instructions);
