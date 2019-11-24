@@ -30,7 +30,7 @@ recipeRouter
           RecipeService.postRecipeIngredients(db, req.body.ingredients);
         });
       })
-      .then(() => res.status(401).send("ok"))
+      .then(() => res.status(201).send("ok"))
       .catch(next);
   });
 

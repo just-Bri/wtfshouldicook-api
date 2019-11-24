@@ -6,7 +6,7 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
-    console.log(`inserting recipe ${recipe.name}`);
+    // console.log(`inserting recipe ${recipe.name}`);
     return db("recipes")
       .insert({
         name: recipe.name,
