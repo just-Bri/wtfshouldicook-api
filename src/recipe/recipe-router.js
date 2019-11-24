@@ -27,11 +27,14 @@ recipeRouter
           db,
           req.body.instructions,
           id
-        ).then(resp => {
-          console.log(`recipe id ${resp[0]}`);
-        });
+        ).then(() =>
+          RecipeService.postRecipeIngredients(db, req.body.ingredients)
+        );
+        // .then(resp => {
+        //   console.log(`recipe id ${resp[0]}`);
+        // });
       })
-      .then(res => res.status(201).json(`details and instr added`))
+      .then(res => res.status(201))
       .catch(next);
   });
 

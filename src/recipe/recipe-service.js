@@ -30,6 +30,19 @@ const RecipeService = {
     ).then(response => {
       return response;
     });
+  },
+  postRecipeIngredients(db, ing) {
+    return Promise.all(
+      ins.map((item, i) => {
+        return db("ingredients")
+          .insert({
+            name: item.name
+          })
+          .returning("name");
+      })
+    ).then(response => {
+      return response;
+    });
   }
 };
 
