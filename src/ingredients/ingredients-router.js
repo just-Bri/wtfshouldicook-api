@@ -15,7 +15,7 @@ ingredientRouter.route("/:recipe_id").get((req, res, next) => {
       // console.log(`response in router.getByRecId: ${response}`);
       res.json(ingredients);
     })
-    .catch(next);
+    .catch(console.log("ings didnt come back"));
 });
 
 module.exports = ingredientRouter;
