@@ -34,8 +34,8 @@ const RecipeService = {
         // });
         return db("instructions")
           .insert({
-            recipe_id: id,
-            step_number: i,
+            recipe_id: parseInt(id, 10),
+            step_number: parseInt(i, 10),
             instructions: item.instructions
           })
           .returning("id");
