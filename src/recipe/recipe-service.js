@@ -40,8 +40,8 @@ const RecipeService = {
           name: item.name
         });
       })
-    ).then(() => {
-      console.log("ings inserted");
+    ).then(response => {
+      return response;
     });
   }
 };
