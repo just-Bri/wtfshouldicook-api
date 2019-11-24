@@ -9,7 +9,7 @@ instructionRouter.route("/:recipe_id").get((req, res, next) => {
   const db = req.app.get("db");
   InstructionService.getByRecipeId(db, req.params.recipe_id)
     .then(instructions => {
-      console.log(instructions);
+      // console.log(instructions);
       res.json(instructions);
     })
     .catch(next);
