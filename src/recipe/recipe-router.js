@@ -33,7 +33,7 @@ recipeRouter
                 RecipeService.postRecipeIngredients(db, req.body, id, ing_id);
               }
             )
-          ]).then(response => console.log(response));
+          ]);
         });
       })
       .then(() => res.status(201).send("ok"))

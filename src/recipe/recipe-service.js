@@ -6,7 +6,6 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
-    // console.log(`inserting recipe ${recipe.name}`);
     return db("recipes")
       .insert({
         name: recipe.name,
@@ -18,7 +17,6 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
-    // console.log(`inserting recipe ${id} instructions`);
     return Promise.all(
       ins.map((item, i) => {
         return db("instructions")
@@ -32,7 +30,6 @@ const RecipeService = {
     ).then(response => response);
   },
   postIngredients(db, ing) {
-    // console.log(`inserting ${ing}`);
     return Promise.all(
       ing.map(item => {
         return db("ingredients")
@@ -44,16 +41,8 @@ const RecipeService = {
     ).then(response => response);
   },
   postRecipeIngredients(db, body, id, ing_id) {
-    // console.log(`db: ${db}`);
-    // console.log(`body: ${body}`);
-    // console.log(`id: ${id}`);
-    // console.log(`ing_id: ${ing_id}`);
-    // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
     return Promise.all(
       body.ingredients.map((ing, i) => {
-        console.log(`ing.amount: ${ing.amount}`);
-        console.log(`id[i]: ${id[i]}`);
-        console.log(`ing_id[i]: ${ing_id[i]}`);
         return db("recipe_ingredients").insert({
           recipe_id: parseInt(id[i], 10),
           ingredient_id: parseInt(ing_id[i], 10),
@@ -61,7 +50,6 @@ const RecipeService = {
         });
       })
     );
-    // return "from postRecIng";
   }
 };
 
