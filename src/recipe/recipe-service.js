@@ -21,17 +21,13 @@ const RecipeService = {
     console.log(`inserting recipe ${id} instructions`);
     return Promise.all(
       ins.map((item, i) => {
-        return db("instructions")
-          .insert({
-            recipe_id: parseInt(id, 10),
-            step_number: parseInt(i, 10),
-            instructions: item.instructions
-          })
-          .returning("recipe_id");
+        return db("instructions").insert({
+          recipe_id: parseInt(id, 10),
+          step_number: parseInt(i, 10),
+          instructions: item.instructions
+        });
       })
-    ).then(response => {
-      return response;
-    });
+    ).catch(e => console.log(e));
   },
   postRecipeIngredients(db, ing) {
     console.log(`inserting ${ing}`);
@@ -41,9 +37,7 @@ const RecipeService = {
           name: item.name
         });
       })
-    ).then(response => {
-      return response;
-    });
+    ).catch(e => console.log(e));
   }
 };
 
