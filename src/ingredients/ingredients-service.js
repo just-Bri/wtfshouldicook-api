@@ -8,7 +8,8 @@ const IngredientService = {
       .join("ingredients", "recipe_ingredients.ingredient_id", "ingredients.id")
       .select("ingredient_amount AS amount", "name")
       .where({ recipe_id })
-      .returning("*");
+      .returning("*")
+      .then(console.log);
   }
 };
 
