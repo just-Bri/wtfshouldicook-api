@@ -55,7 +55,7 @@ const RecipeService = {
         console.log(`id[i]: ${id[i]}`);
         console.log(`ing_id[i]: ${ing_id[i]}`);
         return db("recipe_ingredients").insert({
-          recipe_id: id[i],
+          recipe_id: parseInt(id[i], 10),
           ingredient_id: parseInt(ing_id[i], 10),
           ingredient_amount: ing.amount
         });
