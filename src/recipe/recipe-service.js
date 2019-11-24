@@ -57,7 +57,7 @@ const RecipeService = {
         return db("recipe_ingredients").insert({
           recipe_id: id[i],
           ingredient_id: ing_id[i],
-          amount: ing.amount
+          ingredient_amount: ing.amount
         });
       })
     );
