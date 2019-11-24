@@ -33,10 +33,10 @@ const RecipeService = {
   },
   postRecipeIngredients(db, ing) {
     return Promise.all(
-      ins.map((item, i) => {
+      ins.map(ing => {
         return db("ingredients")
           .insert({
-            name: item.name
+            name: ing.name
           })
           .returning("name");
       })
