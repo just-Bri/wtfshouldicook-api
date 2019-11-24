@@ -23,15 +23,12 @@ recipeRouter
     RecipeService.postRecipe(db, req.body)
       .then(id => {
         console.log(`recipe ${id} added and...`);
-        RecipeService.postRecipeInstructions(
-          db,
-          req.body.instructions,
-          id
-        ).then(resp => {
-          console.log(`instruction ${resp} added and...`);
-        });
+        RecipeService.postRecipeInstructions(db, req.body.instructions, id)
+          .then(resp => {
+            console.log(`instruction ${resp} added and...`);
+          })
+          .then(id => console.log(id));
       })
-      .then(console.log(id))
       .then(res => res.status(201))
       .catch(next);
   });
