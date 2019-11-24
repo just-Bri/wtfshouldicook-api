@@ -53,7 +53,7 @@ const RecipeService = {
       body.ingredients.map(ing => {
         console.log(`ing.amount: ${ing.amount}`);
         console.log(`id[0]: ${id[0]}`);
-        console.log(`ing_id: ${ing_id[0]}`);
+        console.log(`ing.id: ${ing.id}`);
         // return db("recipe_ingredients").insert({
         //   recipe_id: id[0],
         //   ingredient_id: ing_id,
