@@ -25,7 +25,7 @@ const RecipeService = {
             step_number: parseInt(i, 10),
             instructions: item.instructions
           })
-          .returning("id");
+          .returning("recipe_id");
       })
     ).then(response => {
       return response;

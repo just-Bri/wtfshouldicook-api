@@ -27,7 +27,7 @@ recipeRouter
           .then(resp => {
             console.log(`instruction ${resp} added and...`);
           })
-          .then(id => console.log(id));
+          .then(response => console.log(response));
       })
       .then(res => res.status(201))
       .catch(next);
