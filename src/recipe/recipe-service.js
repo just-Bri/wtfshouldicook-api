@@ -34,6 +34,7 @@ const RecipeService = {
     });
   },
   postRecipeIngredients(db, ing) {
+    console.log(`inserting ${ing}`);
     return Promise.all(
       ing.map(item => {
         return db("ingredients").insert({

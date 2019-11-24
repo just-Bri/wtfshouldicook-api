@@ -26,7 +26,7 @@ recipeRouter
       }),
       RecipeService.postRecipeIngredients(db, req.body.ingredients)
     )
-      .then(res => res.status(201))
+      .then(res => res.status(201).send("posted"))
       .catch(next);
   });
 
