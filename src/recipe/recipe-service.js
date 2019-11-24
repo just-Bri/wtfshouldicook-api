@@ -50,10 +50,10 @@ const RecipeService = {
     // console.log(`ing_id: ${ing_id}`);
     // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
     return Promise.all(
-      body.ingredients.map(ing => {
+      body.ingredients.map((ing, i) => {
         console.log(`ing.amount: ${ing.amount}`);
-        console.log(`id[0]: ${id[0]}`);
-        console.log(`ing.id: ${ing.id}`);
+        console.log(`id[i]: ${id[i]}`);
+        console.log(`ing_id[i]: ${ing_id[i]}`);
         // return db("recipe_ingredients").insert({
         //   recipe_id: id[0],
         //   ingredient_id: ing_id,
