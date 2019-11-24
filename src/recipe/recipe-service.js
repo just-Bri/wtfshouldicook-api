@@ -51,8 +51,7 @@ const RecipeService = {
     // console.log(`body.ing[0] vals: ${Object.values(body.ingredients[0])}`);
     return Promise.all(
       body.ingredients.map(i => {
-        console.log(`i -> ing_id: ${i}`);
-        console.log(`find amnt ${body.ingredients[i].amount}`);
+        console.log(`i -> ing_id: ${Object.values(i)}`);
         // return db("recipe_ingredients").insert({
         //   recipe_id: id,
         //   ingredient_id: ing_id,
