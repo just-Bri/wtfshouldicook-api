@@ -47,7 +47,7 @@ const RecipeService = {
     console.log(`db: ${db}`);
     console.log(`body: ${body}`);
     console.log(`ing_id: ${ing_id}`);
-    console.log(`body.ing: ${body.ingredients}`);
+    console.log(`body.ing[0]: ${body.ingredients[0]}`);
     return "from postRecIng";
   }
 };
