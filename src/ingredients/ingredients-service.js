@@ -10,11 +10,9 @@ const IngredientService = {
     //   .where({ recipe_id })
     //   .returning("*")
     //   .then(console.log);
-    return db
-      .raw(
-        `select ingredient_amount, name from recipe_ingredients JOIN ingredients on ingredients.id = recipe_ingredients.ingredient_id where recipe_id = ${recipe_id};`
-      )
-      .returning("*");
+    return db.raw(
+      `select ingredient_amount, name from recipe_ingredients JOIN ingredients on ingredients.id = recipe_ingredients.ingredient_id where recipe_id = ${recipe_id};`
+    );
   }
 };
 
