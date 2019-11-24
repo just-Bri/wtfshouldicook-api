@@ -54,11 +54,11 @@ const RecipeService = {
         console.log(`ing.amount: ${ing.amount}`);
         console.log(`id[i]: ${id[i]}`);
         console.log(`ing_id[i]: ${ing_id[i]}`);
-        // return db("recipe_ingredients").insert({
-        //   recipe_id: id[0],
-        //   ingredient_id: ing_id,
-        //   amount: ing.amount
-        // });
+        return db("recipe_ingredients").insert({
+          recipe_id: id[i],
+          ingredient_id: ing_id[i],
+          amount: ing.amount
+        });
       })
     );
     // return "from postRecIng";
