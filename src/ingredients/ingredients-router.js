@@ -10,7 +10,7 @@ ingredientRouter.route("/:recipe_id").get((req, res, next) => {
   console.log(`recipe_id in router: ${req.params.recipe_id}`);
   IngredientService.getByRecipeId(db, req.params.recipe_id)
     .then(ingredient => {
-      console.log(ingredient);
+      console.log(`ingredient in router.getByRecId: ${ingredient}`);
       res.json(ingredient);
     })
     .catch(next);
