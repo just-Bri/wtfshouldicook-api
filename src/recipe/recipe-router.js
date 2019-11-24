@@ -22,14 +22,16 @@ recipeRouter
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body)
       .then(id => {
+        console.log(`recipe ${id} added and...`);
         RecipeService.postRecipeInstructions(
           db,
           req.body.instructions,
           id
         ).then(resp => {
-          res.status(201).send(`instruction ${resp} added`);
+          res.status(201).send(`instruction ${resp} added and...`);
         });
       })
+      .then(console.log(id))
       .catch(next);
   });
 
