@@ -31,15 +31,23 @@ const RecipeService = {
       })
     ).then(response => response);
   },
-  postRecipeIngredients(db, ing) {
+  postIngredients(db, ing) {
     // console.log(`inserting ${ing}`);
     return Promise.all(
       ing.map(item => {
-        return db("ingredients").insert({
-          name: item.name
-        });
+        return db("ingredients")
+          .insert({
+            name: item.name
+          })
+          .returning("id");
       })
     ).then(response => response);
+  },
+  postRecipeIngredients(db, body, id) {
+    console.log(`db: ${db}`);
+    console.log(`body: ${body}`);
+    console.log(`id: ${id}`);
+    return "from postRecIng";
   }
 };
 

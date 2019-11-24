@@ -27,7 +27,9 @@ recipeRouter
           req.body.instructions,
           id
         ).then(() => {
-          RecipeService.postRecipeIngredients(db, req.body.ingredients);
+          RecipeService.postIngredients(db, req.body.ingredients).then(id => {
+            RecipeService.postRecipeIngredients(db, req.body, id);
+          });
         });
       })
       .then(() => res.status(201).send("ok"))
