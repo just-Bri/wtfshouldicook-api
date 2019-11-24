@@ -6,6 +6,7 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   postRecipe(db, recipe) {
+    console.log(`inserting recipe ${recipe.name}`);
     return db("recipes")
       .insert({
         name: recipe.name,
@@ -17,6 +18,7 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
+    console.log(`inserting recipe ${id} instructions`);
     return Promise.all(
       ins.map((item, i) => {
         return db("instructions")
@@ -34,14 +36,12 @@ const RecipeService = {
   postRecipeIngredients(db, ing) {
     return Promise.all(
       ing.map(item => {
-        return db("ingredients")
-          .insert({
-            name: item.name
-          })
-          .returning("name");
+        return db("ingredients").insert({
+          name: item.name
+        });
       })
-    ).then(response => {
-      return response;
+    ).then(() => {
+      console.log("ings inserted");
     });
   }
 };
