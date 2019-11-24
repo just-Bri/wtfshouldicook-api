@@ -32,7 +32,7 @@ recipeRouter
         });
       })
       .then(console.log(id))
-      .then(() => res.status(201))
+      .then(res => res.status(201))
       .catch(next);
   });
 
