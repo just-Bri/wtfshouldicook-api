@@ -25,7 +25,9 @@ recipeRouter
         RecipeService.postRecipeInstructions(db, req.body.instructions, id);
       }),
       RecipeService.postRecipeIngredients(db, req.body.ingredients)
-    );
+    )
+      .then(() => res.status(401).send("ok"))
+      .catch(next);
   });
 
 recipeRouter.route("/:id").get((req, res, next) => {
