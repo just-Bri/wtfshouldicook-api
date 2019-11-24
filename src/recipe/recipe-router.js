@@ -31,7 +31,7 @@ recipeRouter
           console.log(`recipe id ${resp[0]}`);
         });
       })
-      .then(res => res.status(201).send(`details and instr added`))
+      .then(res => res.status(201).json(`details and instr added`))
       .catch(next);
   });
 
