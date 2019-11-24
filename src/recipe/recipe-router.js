@@ -26,10 +26,11 @@ recipeRouter
           db,
           req.body.instructions,
           id
-        ).then(() => {
-          RecipeService.postIngredients(db, req.body.ingredients).then(id => {
-            RecipeService.postRecipeIngredients(db, req.body, id);
-          });
+        ).then(id => {
+          return Promise.all([
+            RecipeService.postIngredients(db, req.body.ingredients),
+            RecipeService.postRecipeIngredients(db, req.body, id)
+          ]).then(response => console.log(response));
         });
       })
       .then(() => res.status(201).send("ok"))
