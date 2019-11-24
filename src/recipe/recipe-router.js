@@ -20,11 +20,12 @@ recipeRouter
   })
   .post((req, res, next) => {
     const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body)
-      .then(id => {
+    return Promise.All(
+      RecipeService.postRecipe(db, req.body).then(id => {
         RecipeService.postRecipeInstructions(db, req.body.instructions, id);
-      })
-      .then(() => RecipeService.postRecipeIngredients(db, req.body.ingredients))
+      }),
+      RecipeService.postRecipeIngredients(db, req.body.ingredients)
+    )
       .then(res => res.status(201))
       .catch(next);
   });
