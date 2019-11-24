@@ -17,21 +17,8 @@ const RecipeService = {
       .returning("id");
   },
   postRecipeInstructions(db, ins, id) {
-    // ins = recipe instructions array
-    // id = recipe_id coming from postRecipe return
     return Promise.all(
       ins.map((item, i) => {
-        // console.log("rec_id: " + id);
-        // console.log("step: " + i);
-        // console.log("inst: " + item.instructions);
-        //   db("instructions")
-        //     .insert({
-        //       recipe_id: id,
-        //       step_number: i,
-        //       instructions: item.instructions
-        //     })
-        //     .returning("id");
-        // });
         return db("instructions")
           .insert({
             recipe_id: parseInt(id, 10),
@@ -40,7 +27,7 @@ const RecipeService = {
           })
           .returning("id");
       })
-    ).then(response => console.log(response));
+    ).then(response => res.status(201).res.send(response));
   }
 };
 
