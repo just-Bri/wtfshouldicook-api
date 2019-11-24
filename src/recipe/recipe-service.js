@@ -23,7 +23,7 @@ const RecipeService = {
         step_number: 50,
         instructions: "test"
       })
-      .returning("*");
+      .returning("id");
     // .then(console.log);
   }
 };
