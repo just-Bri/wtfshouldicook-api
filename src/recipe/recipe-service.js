@@ -22,7 +22,7 @@ const RecipeService = {
           let rand = Math.floor(Math.random() * Math.floor(count));
           return rand;
         })
-        .then(rand => rand)
+        .then(rand => console.log(rand))
     );
   },
   postRecipe(db, recipe) {
