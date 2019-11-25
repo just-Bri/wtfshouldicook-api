@@ -49,8 +49,8 @@ const RecipeService = {
           this.getRecipeIngredients(rand),
           this.getRecipeInstructions(rand)
         ])
-          .then(res => console.log("Promise.all", res))
-          .catch(e => console.log("Promise.all e", e));
+          .then(res => console.log("Promise.all in getByAnswers", res))
+          .catch(e => console.log("Promise.all e  in getByAnswers", e));
       });
   },
   postRecipe(db, recipe) {
