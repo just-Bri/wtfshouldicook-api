@@ -13,7 +13,7 @@ const RecipeService = {
     // console.log(comSym);
     return db('recipes')
       .count('id as CNT')
-      .where({ complex: answers.complex === 'no' ? 'no' : 'yes' })
+      .where({ complex: answers.complex })
       .andWhere('cuisine', '=', answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
