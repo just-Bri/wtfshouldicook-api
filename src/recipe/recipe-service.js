@@ -10,12 +10,11 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     let comNum = answers.complexity === "yes" ? "> 2" : "< 3";
-    return db
+    return db("recipes")
       .count("id as CNT")
-      .from("recipes")
       .where({
-        cuisine: answers.cuisine,
-        complexity: comNum
+        cuisine: "british",
+        complexity: "1"
       })
       .then(console.log);
     // .returning("CNT")
