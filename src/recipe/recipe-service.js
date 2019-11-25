@@ -12,7 +12,8 @@ const RecipeService = {
     return db("recipes")
       .where({ cuisine })
       .first()
-      .returning("*");
+      .returning("*")
+      .then(console.log);
     return "from getByAnswers";
   },
   postRecipe(db, recipe) {
