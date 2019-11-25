@@ -9,18 +9,18 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    // let comSym = answers.complex === 'no' ? 'False' : 'True';
-    // console.log(comSym);
-    return db('recipes')
-      .count('id as CNT')
-      .where({ complex: answers.complex })
-      .andWhere('cuisine', '=', answers.cuisine)
-      .then(response => {
-        let count = Object.values(response[0]);
-        let rand = Math.floor(Math.random() * Math.floor(count));
-        return rand;
-      })
-      .then(rand => rand);
+    return (
+      db('recipes')
+        .count('id as CNT')
+        .where({ complex: answers.complex })
+        // .andWhere('cuisine', '=', answers.cuisine)
+        .then(response => {
+          let count = Object.values(response[0]);
+          let rand = Math.floor(Math.random() * Math.floor(count));
+          return rand;
+        })
+        .then(rand => rand)
+    );
   },
   postRecipe(db, recipe) {
     return db('recipes')
