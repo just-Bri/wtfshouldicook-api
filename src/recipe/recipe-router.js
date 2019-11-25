@@ -39,7 +39,7 @@ recipeRouter
           ]);
         });
       })
-      .then(() => res.status(201).send({ redirect: `/recipes/${submittedId}` }))
+      .then(() => res.status(201).redirect(`/recipes/${submittedId}`))
       .catch(next);
   });
 
