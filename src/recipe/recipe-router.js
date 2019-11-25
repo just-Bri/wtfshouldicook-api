@@ -5,13 +5,13 @@ const RecipeService = require("./recipe-service");
 const recipeRouter = express.Router();
 const jsonParser = express.json();
 
-const serializeRecipe = recipe => ({
-  name: xss(recipe.name),
-  prep_time: xss(recipe.prep_time),
-  cook_time: xss(recipe.cook_time),
-  cuisine: xss(recipe.cuisine),
-  complexity: xss(recipe.complexity)
-});
+// const serializeRecipe = recipe => ({
+//   name: xss(recipe.name),
+//   prep_time: xss(recipe.prep_time),
+//   cook_time: xss(recipe.cook_time),
+//   cuisine: xss(recipe.cuisine),
+//   complexity: xss(recipe.complexity)
+// });
 
 let submittedId;
 recipeRouter.route("/").get((req, res, next) => {
