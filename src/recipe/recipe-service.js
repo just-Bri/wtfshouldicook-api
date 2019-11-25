@@ -9,21 +9,14 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    return (
-      db("recipes")
-        .select("id")
-        .where({ cuisine: answers.cuisine })
-        .andWhere({ complex: answers.complex })
-        .orderByRaw("RANDOM()")
-        .limit(1)
-        // select id from recipes
-        // where "cuisine" = 'british'
-        // AND "complex" = False
-        // ORDER BY RANDOM()
-        // LIMIT 1;
-        .then(response => console.log(response[0].id))
-        .then(response => response[0].id)
-    );
+    return db("recipes")
+      .select("id")
+      .where({ cuisine: answers.cuisine })
+      .andWhere({ complex: answers.complex })
+      .orderByRaw("RANDOM()")
+      .limit(1)
+      .then(response => response);
+    // .then(response => console.log(response[0].id))
   },
   postRecipe(db, recipe) {
     return db("recipes")
