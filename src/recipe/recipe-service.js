@@ -9,21 +9,17 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    return (
-      db("recipes")
-        .raw(
-          `select count(id) from recipes where "cuisine" = 'british' and "complex" = False;`
-        )
-        // .count("id as CNT")
-        // .where({ complex: answers.complex })
-        // .where({ cuisine: answers.cuisine })
-        .then(response => {
-          let count = Object.values(response[0]);
-          let rand = Math.floor(Math.random() * Math.floor(count));
-          return rand;
-        })
-        .then(rand => console.log(rand))
-    );
+    return db("recipes")
+      .count("id as CNT")
+      .where({ complex: answers.complex })
+      .where({ cuisine: answers.cuisine })
+      .then(response => {
+        console.log(`resp from count: ${response}`);
+        let count = Object.values(response[0]);
+        let rand = Math.floor(Math.random() * Math.floor(count));
+        return rand;
+      })
+      .then(rand => rand);
   },
   postRecipe(db, recipe) {
     return db("recipes")
