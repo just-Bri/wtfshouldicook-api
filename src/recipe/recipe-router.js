@@ -10,7 +10,7 @@ const jsonParser = express.json();
 //   prep_time: xss(recipe.prep_time),
 //   cook_time: xss(recipe.cook_time),
 //   cuisine: xss(recipe.cuisine),
-//   complexity: xss(recipe.complexity)
+//   complex: xss(recipe.complex)
 // });
 
 let submittedId;

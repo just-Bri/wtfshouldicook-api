@@ -2,7 +2,7 @@
 BEGIN;
 
 INSERT into
-  recipes (name, prep_time, cook_time, cuisine, complexity)
+  recipes (name, prep_time, cook_time, cuisine, complex)
 VALUES
   ('test name', '1', '2', 'Italian', '1');
 

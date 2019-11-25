@@ -6,7 +6,7 @@
 //   cook_time = recipeDetails[0].cook_time,
 //   picture_url = recipeDetails[0].picture_url,
 //   cuisine = recipeDetails[0].cuisine,
-//   complexity = recipeDetails[0].complexity,
+//   complex = recipeDetails[0].complex,
 //   ingredients = recipeIngredients.forEach(item => {
 //     return { name: item.name, amount: item.amount };
 //   }),
@@ -22,7 +22,7 @@
 //   prep_time,
 //   cook_time,
 //   cuisine,
-//   complexity,
+//   complex,
 //   picture_url,
 //   ingredients,
 //   instructions

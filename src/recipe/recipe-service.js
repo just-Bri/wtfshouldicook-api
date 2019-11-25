@@ -9,7 +9,7 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    // let comSym = answers.complexity === "yes" ? '">"' : '"<"';
+    // let comSym = answers.complex === "yes" ? '">"' : '"<"';
     // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
@@ -29,7 +29,7 @@ const RecipeService = {
         prep_time: recipe.prep_time,
         cook_time: recipe.cook_time,
         cuisine: recipe.cuisine,
-        complexity: recipe.complexity
+        complex: recipe.complex
       })
       .returning("id");
   },
