@@ -1,3 +1,5 @@
+const knex = require("knex");
+
 const RecipeService = {
   getAllRecipes(db) {
     return db.select("*").from("recipes");
@@ -12,8 +14,12 @@ const RecipeService = {
     console.log(`answers.craving: ${answers.craving}`);
     return db("recipes")
       .select("id")
-      .where({ cuisine: answers.cuisine })
       .andWhere({ complex: answers.complex })
+      .modify(() => {
+        if (answers.cuisine) {
+          knex.andWhere({ cuisine: answers.cuisine });
+        }
+      })
       .orderByRaw("RANDOM()")
       .limit(1)
       .then(response => response);
