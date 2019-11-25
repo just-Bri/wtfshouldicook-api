@@ -39,9 +39,7 @@ recipeRouter
           ]);
         });
       })
-      .then(() =>
-        res.status(201).redirect(`http://localhost:3000/recipes/${submittedId}`)
-      )
+      .then(() => res.redirect(201, `/recipes/${submittedId}`))
       .catch(next);
   });
 
