@@ -16,7 +16,7 @@ const RecipeService = {
       .then(response => {
         console.log(`resp from count: ${Object.values(response[0])}`);
         let count = Object.values(response[0]);
-        let rand = Math.floor(Math.random() * Math.floor(count));
+        let rand = Math.floor(Math.random() * Math.floor(count)) + 1;
         console.log(rand);
         return rand;
       })
