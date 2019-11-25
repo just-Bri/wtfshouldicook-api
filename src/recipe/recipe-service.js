@@ -15,8 +15,8 @@ const RecipeService = {
         .where({ complex: answers.complex })
         .andWhere({ cuisine: answers.cuisine })
         .orderByRaw("RAND()")
-        .returning("id")
         .first()
+        .returning("id")
         // .returning("id")
         // .then(response => {
         //   console.log(`resp from count: ${response[0].CNT}`);
