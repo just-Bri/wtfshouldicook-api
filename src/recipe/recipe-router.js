@@ -39,9 +39,7 @@ recipeRouter.route("/").post((req, res, next) => {
       );
     })
     .then(() =>
-      res
-        .send(201)
-        .json({ success: true, redirectTo: `/recipes/${submittedId}` })
+      res.json({ success: true, redirectTo: `/recipes/${submittedId}` })
     )
     .catch(next);
 });
