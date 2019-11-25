@@ -14,7 +14,7 @@ const RecipeService = {
     // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
-      .where("complexity", ">", "3")
+      .where("complexity", ">", 3)
       .andWhere("cuisine", "=", answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
