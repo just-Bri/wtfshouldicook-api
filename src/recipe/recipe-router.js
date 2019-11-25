@@ -18,8 +18,8 @@ recipeRouter.route("/").get((req, res, next) => {
   const db = req.app.get("db");
   RecipeService.getByAnswers(db, req.query)
     .then(
-      response => console.log(`response: ${response}`)
-      // res.status(200).send("res.send from router after service")
+      // response => console.log(`response: ${response}`)
+      res.status(200).send("res.send from router after service")
     )
     .catch(next);
 });
