@@ -10,7 +10,7 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     // return db("recipes")
-    return { answers };
+    return "from getByAnswers";
   },
   postRecipe(db, recipe) {
     return db("recipes")
