@@ -11,10 +11,11 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     let comSym = answers.complexity === "yes" ? ">" : "<";
+    console.log(comSym);
     return db("recipes")
       .count("id as CNT")
       .where("complexity", comSym, "3")
-      .andWhere("cuisine", "=", answers.cuisine.toString())
+      .andWhere("cuisine", "=", answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
         let rand = Math.floor(Math.random() * Math.floor(count));
