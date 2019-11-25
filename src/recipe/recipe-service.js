@@ -21,6 +21,7 @@ const RecipeService = {
         // AND "complex" = False
         // ORDER BY RANDOM()
         // LIMIT 1;
+        .then(response => response.json())
         .then(response => response)
     );
   },
