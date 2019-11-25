@@ -9,6 +9,7 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
+    console.log(`answers.craving: ${answers.craving}`);
     return db("recipes")
       .select("id")
       .where({ cuisine: answers.cuisine })
