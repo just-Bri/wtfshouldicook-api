@@ -22,19 +22,17 @@ recipeRouter
     const db = req.app.get("db");
     RecipeService.postRecipe(db, req.body)
       .then(id => {
-        RecipeService.postRecipeInstructions(
-          db,
-          req.body.instructions,
-          id
-        ).then(id => {
-          return Promise.all([
-            RecipeService.postIngredients(db, req.body.ingredients).then(
-              ing_id => {
-                RecipeService.postRecipeIngredients(db, req.body, id, ing_id);
-              }
-            )
-          ]);
-        });
+        RecipeService.postRecipeInstructions(db, req.body.instructions, id)
+          .then(id => {
+            return Promise.all([
+              RecipeService.postIngredients(db, req.body.ingredients).then(
+                ing_id => {
+                  RecipeService.postRecipeIngredients(db, req.body, id, ing_id);
+                }
+              )
+            ]);
+          })
+          .then(id => res.send(id));
       })
       .then(id => res.status(201).send(id))
       .catch(next);
