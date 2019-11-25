@@ -11,7 +11,7 @@ const RecipeService = {
     console.log(`answers.complexity: ${answers.complexity}`);
     return db("recipes")
       .select("*")
-      .where({ cuisine })
+      .where("cuisine", answers.cuisine)
       .first()
       .then(console.log);
     return "from getByAnswers";
