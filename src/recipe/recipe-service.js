@@ -25,7 +25,7 @@ const RecipeService = {
         //   console.log(rand);
         //   return rand;
         // })
-        .then(response => console.log(response))
+        .then(response => response)
     );
   },
   postRecipe(db, recipe) {
