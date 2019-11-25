@@ -12,7 +12,7 @@ const RecipeService = {
     return db("recipes")
       .count("id as CNT")
       .where({ complex: answers.complex })
-      .where({ cuisine: answers.cuisine })
+      .andWhere({ cuisine: answers.cuisine })
       .then(response => {
         console.log(`resp from count: ${Object.values(response[0])}`);
         let count = Object.values(response[0]);
