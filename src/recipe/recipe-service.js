@@ -16,9 +16,8 @@ const RecipeService = {
         cuisine: "british",
         complexity: "1"
       })
-      .returning("CNT")
       .then(response => {
-        console.log(response);
+        console.log(Object.values(response[0]));
       });
     // .then(console.log);
     // .returning("CNT")
