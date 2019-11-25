@@ -12,7 +12,7 @@ const RecipeService = {
     return (
       db("recipes")
         .raw(
-          `select count(id) from recipes where "cuisine" = ${answers.cuisine} and "complex" = ${answers.complex};`
+          `select count(id) from recipes where "cuisine" = 'british' and "complex" = False;`
         )
         // .count("id as CNT")
         // .where({ complex: answers.complex })
