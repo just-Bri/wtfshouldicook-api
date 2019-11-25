@@ -9,12 +9,14 @@ const RecipeService = {
     console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
+    let comNum = answers.complexity === "yes" ? "> 2" : "< 3";
     return db("recipes")
       .count("id as CNT")
       .where({
         cuisine: answers.cuisine,
-        complexity: answers.complexity === "yes" ? "> 2" : "< 3"
+        complexity: comNum
       })
+      .returning("CNT")
       .then(CNT => {
         let rand = Math.floor(Math.random() * Math.floor(CNT));
         console.log(rand);
