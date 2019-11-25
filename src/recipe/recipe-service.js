@@ -14,7 +14,7 @@ const RecipeService = {
       .where({ complex: answers.complex })
       .where({ cuisine: answers.cuisine })
       .then(response => {
-        console.log(`resp from count: ${response}`);
+        console.log(`resp from count: ${Object.valuesresponse[0]}`);
         let count = Object.values(response[0]);
         let rand = Math.floor(Math.random() * Math.floor(count));
         return rand;
