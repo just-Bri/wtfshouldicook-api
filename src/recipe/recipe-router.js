@@ -40,7 +40,7 @@ recipeRouter
         });
       })
       .then(() =>
-        res.send(submittedId).redirect(201, `/recipes/${submittedId}`)
+        res.json({ success: true, redirectTo: `/recipes/${submittedId}` })
       )
       .catch(next);
   });
