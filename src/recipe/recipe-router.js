@@ -17,7 +17,7 @@ let submittedId;
 recipeRouter.route("/").get((req, res, next) => {
   const db = req.app.get("db");
   RecipeService.getByAnswers(db, req.query)
-    .then(response => res.send(201).send(response))
+    .then(response => res.send(response))
     .catch(next);
 });
 
