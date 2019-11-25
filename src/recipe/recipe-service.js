@@ -10,9 +10,9 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     return db("recipes")
+      .select("*")
       .where({ cuisine })
       .first()
-      .returning("*")
       .then(console.log);
     return "from getByAnswers";
   },
