@@ -7,23 +7,22 @@ const RecipeService = {
   },
 
   getByAnswers(db, answers) {
-    console.log(`answers.cuisine: ${answers.cuisine}`);
-    console.log(`answers.complex: ${answers.complex}`);
-    console.log(`answers.craving: ${answers.craving}`);
     let query = db("recipes")
       .select("id")
       .orderByRaw("RANDOM()")
       .where({ complex: answers.complex })
       .limit(1);
-    if (answers.cuisine) {
-      return query
-        .andWhere({ cuisine: answers.cuisine })
-        .then(response => response);
-    } else {
-      return query.then(response => response);
-    }
-
-    // .then(response => console.log(response[0].id))
+    // if (answers.cuisine) {
+    //   return query
+    //     .andWhere({ cuisine: answers.cuisine })
+    //     .then(response => response);
+    // } else {
+    //   return query.then(response => response);
+    // }
+    return (answers.cuisine
+      ? query.andWhere({ cuisine: answers.cuisine })
+      : query
+    ).then(response => response);
   },
   postRecipe(db, recipe) {
     return db("recipes")
