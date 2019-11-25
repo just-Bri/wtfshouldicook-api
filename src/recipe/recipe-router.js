@@ -14,11 +14,11 @@ const serializeRecipe = recipe => ({
 });
 
 let submittedId;
-recipeRouter.route("/*").get((req, res, next) => {
+recipeRouter.route("/").get((req, res, next) => {
   const db = req.app.get("db");
-  RecipeService.getByAnswers(db, req.query).then(res =>
-    res.status(200).send("send in router after service")
-  );
+  RecipeService.getByAnswers(db, req.query)
+    .then(() => res.status(200).send("send in router after service"))
+    .catch(next);
 });
 
 recipeRouter.route("/").post((req, res, next) => {
