@@ -14,6 +14,7 @@ const RecipeService = {
         // .count("id as CNT")
         .where({ complex: answers.complex })
         .andWhere({ cuisine: answers.cuisine })
+        .returning("id")
         // .then(response => {
         //   console.log(`resp from count: ${response[0].CNT}`);
         //   let count = Object.values(response[0]);
