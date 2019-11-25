@@ -10,7 +10,7 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
     let comSym = answers.complex === "yes" ? "t" : "f";
-    // console.log(comSym);
+    console.log(comSym);
     return db("recipes")
       .count("id as CNT")
       .where("complex", "=", answers.complex.toString())
