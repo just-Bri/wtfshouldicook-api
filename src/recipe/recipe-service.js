@@ -17,7 +17,7 @@ const RecipeService = {
         complexity: "1"
       })
       .then(response => {
-        console.log(response);
+        console.log(response.CNT);
       });
     // .then(console.log);
     // .returning("CNT")
