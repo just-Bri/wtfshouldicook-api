@@ -18,6 +18,7 @@ let submittedId;
 recipeRouter
   .route("/")
   .get((req, res, next) => {
+    console.log(req.body);
     res.status(200).send("testing /api/recipe GET");
   })
   .post((req, res, next) => {
