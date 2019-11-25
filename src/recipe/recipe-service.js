@@ -11,12 +11,12 @@ const RecipeService = {
     console.log(`answers.complex: ${answers.complex}`);
     return (
       db("recipes")
+        .select("id")
         // .count("id as CNT")
         .where({ complex: answers.complex })
         .andWhere({ cuisine: answers.cuisine })
         .orderByRaw("RAND()")
         .first()
-        .returning("id")
         // .returning("id")
         // .then(response => {
         //   console.log(`resp from count: ${response[0].CNT}`);
