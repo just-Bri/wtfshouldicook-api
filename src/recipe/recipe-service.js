@@ -18,7 +18,8 @@ const RecipeService = {
         let count = Object.values(response[0]);
         let rand = Math.floor(Math.random() * Math.floor(count));
         this.getById(db, rand);
-      });
+      })
+      .then(response => response);
     // .then(console.log);
     // .returning("CNT")
     // .then(response => {
