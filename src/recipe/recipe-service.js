@@ -8,21 +8,29 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
 
+  // var withUserName = function(queryBuilder, foreignKey) {
+  //   queryBuilder.leftJoin('users', foreignKey, 'users.id').select('users.user_name');
+  // };
+  // knex.table('articles').select('title', 'body').modify(withUserName, 'articles_user.id').then(function(article) {
+  //   console.log(article.user_name);
+  // });
+
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
     console.log(`answers.craving: ${answers.craving}`);
+    var condi = (queryBuilder, answers) => {
+      if (answers.cuisine) {
+        queryBuilder
+          .where({ complex: answers.complex })
+          .andWhere("cuisine", answers.cuisine);
+      } else {
+        queryBuilder.where({ complex: answers.complex });
+      }
+    };
     return db("recipes")
       .select("id")
-      .modify(() => {
-        if (answers.cuisine) {
-          knex
-            .where({ complex: answers.complex })
-            .andWhere("cuisine", answers.cuisine);
-        } else {
-          knex.where({ complex: answers.complex });
-        }
-      })
+      .modify(condi)
       .orderByRaw("RANDOM()")
       .limit(1)
       .then(response => response);
