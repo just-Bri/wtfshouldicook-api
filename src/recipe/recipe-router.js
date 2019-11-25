@@ -27,6 +27,7 @@ recipeRouter
           req.body.instructions,
           id
         ).then(id => {
+          res.send(id);
           return Promise.all([
             RecipeService.postIngredients(db, req.body.ingredients).then(
               ing_id => {
