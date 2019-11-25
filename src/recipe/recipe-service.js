@@ -12,13 +12,6 @@ const RecipeService = {
       .orderByRaw("RANDOM()")
       .where({ complex: answers.complex })
       .limit(1);
-    // if (answers.cuisine) {
-    //   return query
-    //     .andWhere({ cuisine: answers.cuisine })
-    //     .then(response => response);
-    // } else {
-    //   return query.then(response => response);
-    // }
     return (answers.cuisine
       ? query.andWhere({ cuisine: answers.cuisine })
       : query
