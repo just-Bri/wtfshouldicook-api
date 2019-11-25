@@ -14,25 +14,20 @@ const serializeRecipe = recipe => ({
 });
 
 let submittedId;
+recipeRouter.route("/?").get((req, res, next) => {
+  const db = req.app.get("db");
+  RecipeService.getByAnswers(db, req.query).then(res =>
+    res.status(200).send("send in router after service")
+  );
+});
 
-recipeRouter
-  .route("/")
-  .get((req, res, next) => {
-    const db = req.app.get("db");
-    RecipeService.getByAnswers(db, req.query).then(res =>
-      res.status(200).send("send in router after service")
-    );
-  })
-  .post((req, res, next) => {
-    const db = req.app.get("db");
-    RecipeService.postRecipe(db, req.body)
-      .then(id => {
-        submittedId = id;
-        RecipeService.postRecipeInstructions(
-          db,
-          req.body.instructions,
-          id
-        ).then(id => {
+recipeRouter.route("/").post((req, res, next) => {
+  const db = req.app.get("db");
+  RecipeService.postRecipe(db, req.body)
+    .then(id => {
+      submittedId = id;
+      RecipeService.postRecipeInstructions(db, req.body.instructions, id).then(
+        id => {
           return Promise.all([
             RecipeService.postIngredients(db, req.body.ingredients).then(
               ing_id => {
@@ -40,15 +35,16 @@ recipeRouter
               }
             )
           ]);
-        });
-      })
-      .then(() =>
-        res
-          .send(201)
-          .json({ success: true, redirectTo: `/recipes/${submittedId}` })
-      )
-      .catch(next);
-  });
+        }
+      );
+    })
+    .then(() =>
+      res
+        .send(201)
+        .json({ success: true, redirectTo: `/recipes/${submittedId}` })
+    )
+    .catch(next);
+});
 
 recipeRouter.route("/:id").get((req, res, next) => {
   const db = req.app.get("db");
