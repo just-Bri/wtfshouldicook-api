@@ -9,7 +9,7 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    let comSym = answers.complex === "yes" ? "True" : "False";
+    let comSym = answers.complex === "yes" ? True : False;
     console.log(comSym);
     return db("recipes")
       .count("id as CNT")
