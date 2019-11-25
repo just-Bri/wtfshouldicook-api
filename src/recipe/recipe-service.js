@@ -9,8 +9,11 @@ const RecipeService = {
     console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
-    // return db("recipes")
-    return "from getByAnswers".json();
+    return db("recipes")
+      .where({ cuisine })
+      .first()
+      .returning("*");
+    return "from getByAnswers";
   },
   postRecipe(db, recipe) {
     return db("recipes")

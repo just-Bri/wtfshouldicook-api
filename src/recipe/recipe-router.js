@@ -17,7 +17,11 @@ let submittedId;
 recipeRouter.route("/").get((req, res, next) => {
   const db = req.app.get("db");
   RecipeService.getByAnswers(db, req.query)
-    .then(() => res.status(200).send("send in router after service"))
+    .then(response =>
+      res
+        .status(200)
+        .send("res.send from router after service, response: " + response)
+    )
     .catch(next);
 });
 
