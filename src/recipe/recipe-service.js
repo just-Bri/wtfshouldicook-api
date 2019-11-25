@@ -6,7 +6,9 @@ const RecipeService = {
     return db("recipes").where({ id });
   },
   getByAnswers(db, answers) {
-    console.log(answers);
+    console.log(`answers: ${answers}`);
+    console.log(`answers.cuisine: ${answers.cuisine}`);
+    console.log(`answers.complexity: ${answers.complexity}`);
     // return db("recipes")
     return answers;
   },
