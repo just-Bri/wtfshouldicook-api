@@ -18,7 +18,7 @@ const RecipeService = {
       .then(CNT => {
         let rand = Math.floor(Math.random() * Math.floor(CNT));
         console.log(rand);
-        // return db("recipes")
+        // return db("recipes");
         // .select("*")
         // .where({ cuisine: answers.cuisine }).then()
       });
