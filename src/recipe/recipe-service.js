@@ -13,7 +13,7 @@ const RecipeService = {
       db('recipes')
         .count('id as CNT')
         // .where({ complex: answers.complex })
-        .andWhere('cuisine', '=', answers.cuisine)
+        .where('cuisine', '=', answers.cuisine)
         .then(response => {
           let count = Object.values(response[0]);
           let rand = Math.floor(Math.random() * Math.floor(count));
