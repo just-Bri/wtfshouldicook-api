@@ -39,6 +39,7 @@ recipeRouter
           ]);
         });
       })
+      .then(() => res.status(201))
       .catch(next);
   });
 
