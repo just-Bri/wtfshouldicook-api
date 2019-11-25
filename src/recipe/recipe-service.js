@@ -5,7 +5,7 @@ const RecipeService = {
   getById(db, id) {
     return db("recipes").where({ id });
   },
-  getRecipeDetails = new Promise(id => {
+  getRecipeDetails(id) {
     fetch(`${config.API_ENDPOINT}/api/recipe/${id}`)
       .then(response => {
         return response.json();
@@ -13,8 +13,8 @@ const RecipeService = {
       .then(recipe => {
         this.setState({ recipeDetails: recipe });
       });
-  }),
-  getRecipeIngredients = new Promise(id => {
+  },
+  getRecipeIngredients(id) {
     fetch(`${config.API_ENDPOINT}/api/ingredient/${id}`)
       .then(response => {
         return response.json();
@@ -22,18 +22,16 @@ const RecipeService = {
       .then(ingredients => {
         this.setState({ recipeIngredients: ingredients });
       });
-  }),
-  getRecipeInstructions = new Promise(id => {
-    fetch(
-      `${config.API_ENDPOINT}/api/instruction/${id}`
-    )
+  },
+  getRecipeInstructions(id) {
+    fetch(`${config.API_ENDPOINT}/api/instruction/${id}`)
       .then(response => {
         return response.json();
       })
       .then(instructions => {
         this.setState({ recipeInstructions: instructions });
       });
-  }),
+  },
   getByAnswers(db, answers) {
     console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
@@ -47,12 +45,12 @@ const RecipeService = {
         let count = Object.values(response[0]);
         let rand = Math.floor(Math.random() * Math.floor(count));
         return Promise.all([
-            this.getRecipeDetails(rand),
-            this.getRecipeIngredients(rand),
-            this.getRecipeInstructions(rand)
-          ])
-            .then(res => console.log("Promise.all", res))
-            .catch(e => console.log("Promise.all e", e));
+          this.getRecipeDetails(rand),
+          this.getRecipeIngredients(rand),
+          this.getRecipeInstructions(rand)
+        ])
+          .then(res => console.log("Promise.all", res))
+          .catch(e => console.log("Promise.all e", e));
       });
   },
   postRecipe(db, recipe) {
