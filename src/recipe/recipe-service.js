@@ -13,8 +13,8 @@ const RecipeService = {
     return db("recipes")
       .count("id as CNT")
       .where({
-        cuisine: "british",
-        complexity: "1"
+        cuisine: answers.cuisine,
+        complexity: comNum
       })
       .then(response => {
         let count = Object.values(response[0]);
