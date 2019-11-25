@@ -10,11 +10,18 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     return db("recipes")
-      .select("*")
-      .where("cuisine", answers.cuisine)
-      .first()
-      .then(console.log);
-    return "from getByAnswers";
+      .count("id as CNT")
+      .where({
+        cuisine: answers.cuisine,
+        complexity: answers.complexity === "yes" ? "> 2" : "< 3"
+      })
+      .then(CNT => {
+        let rand = Math.floor(Math.random() * Math.floor(CNT));
+        console.log(rand);
+        // return db("recipes")
+        // .select("*")
+        // .where({ cuisine: answers.cuisine }).then()
+      });
   },
   postRecipe(db, recipe) {
     return db("recipes")
