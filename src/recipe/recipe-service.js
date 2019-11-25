@@ -12,19 +12,15 @@ const RecipeService = {
     return (
       db("recipes")
         .select("id")
-        // .count("id as CNT")
-        .where({ complex: answers.complex })
-        .andWhere({ cuisine: answers.cuisine })
-        .orderByRaw("RAND()")
-        .first()
-        // .returning("id")
-        // .then(response => {
-        //   console.log(`resp from count: ${response[0].CNT}`);
-        //   let count = Object.values(response[0]);
-        //   let rand = Math.floor(Math.random() * Math.floor(count)) + 1;
-        //   console.log(rand);
-        //   return rand;
-        // })
+        .where({ cuisine: answers.cuisine })
+        .andWhere({ complex: answers.complex })
+        .orderByRaw("RANDOM()")
+        .limit(1)
+        // select id from recipes
+        // where "cuisine" = 'british'
+        // AND "complex" = False
+        // ORDER BY RANDOM()
+        // LIMIT 1;
         .then(response => response)
     );
   },
