@@ -39,7 +39,7 @@ recipeRouter
           ]);
         });
       })
-      .then(() => res.status(201).body({ id: submittedId }))
+      .then(() => res.status(201).send({ id: submittedId }))
       .catch(next);
   });
 
