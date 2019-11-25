@@ -22,7 +22,7 @@ const RecipeService = {
         // ORDER BY RANDOM()
         // LIMIT 1;
         .then(response => console.log(response[0].id))
-        .then(response => response)
+        .then(response => response[0].id)
     );
   },
   postRecipe(db, recipe) {
