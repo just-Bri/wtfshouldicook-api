@@ -10,7 +10,7 @@ const RecipeService = {
     console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
-    let comSym = answers.complexity === "yes" ? ">" : "<";
+    let comSym = answers.complexity === "yes" ? '">"' : '"<"';
     console.log(comSym);
     return db("recipes")
       .count("id as CNT")
