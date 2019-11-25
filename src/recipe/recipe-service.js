@@ -5,6 +5,11 @@ const RecipeService = {
   getById(db, id) {
     return db("recipes").where({ id });
   },
+  getByAnswers(db, answers) {
+    console.log(answers);
+    // return db("recipes")
+    return answers;
+  },
   postRecipe(db, recipe) {
     return db("recipes")
       .insert({

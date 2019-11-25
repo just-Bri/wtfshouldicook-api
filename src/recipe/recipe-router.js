@@ -19,7 +19,10 @@ recipeRouter
   .route("/")
   .get((req, res, next) => {
     console.log(req.query);
-    res.status(200).send("testing /api/recipe GET");
+    const db = req.app.get("db");
+    RecipeService.getByAnswers(db, req.query).then(res =>
+      res.status(200).send("send in router after service")
+    );
   })
   .post((req, res, next) => {
     const db = req.app.get("db");
