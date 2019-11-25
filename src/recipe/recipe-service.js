@@ -17,13 +17,15 @@ const RecipeService = {
         complexity: "1"
       })
       .then(response => {
-        console.log(Object.values(response[0]));
+        let count = Object.values(response[0]);
+        let rand = Math.floor(Math.random() * Math.floor(count));
+        console.log(rand);
       });
     // .then(console.log);
     // .returning("CNT")
     // .then(response => {
     //   console.log(response);
-    // let rand = Math.floor(Math.random() * Math.floor(CNT));
+    //
     // console.log(rand);
     // return db("recipes");
     // .select("*")
