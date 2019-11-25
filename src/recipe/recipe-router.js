@@ -39,9 +39,6 @@ recipeRouter
           ]);
         });
       })
-      .then(() =>
-        res.status(201).url(`https://wtfshouldicook.com/recipes/${submittedId}`)
-      )
       .catch(next);
   });
 
