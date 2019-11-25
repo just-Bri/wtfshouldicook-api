@@ -17,9 +17,10 @@ const RecipeService = {
         complexity: comNum
       })
       .returning("CNT")
-      .then(CNT => {
-        let rand = Math.floor(Math.random() * Math.floor(CNT));
-        console.log(rand);
+      .then(response => {
+        console.log(response);
+        // let rand = Math.floor(Math.random() * Math.floor(CNT));
+        // console.log(rand);
         // return db("recipes");
         // .select("*")
         // .where({ cuisine: answers.cuisine }).then()
