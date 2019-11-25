@@ -9,12 +9,12 @@ const RecipeService = {
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complex: ${answers.complex}`);
-    // let comSym = answers.complex === "yes" ? '">"' : '"<"';
+    let comSym = answers.complex === "yes" ? "t" : "f";
     // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
       .where("complex", "=", answers.complex.toString())
-      .andWhere("cuisine", "=", answers.cuisine)
+      .andWhere("cuisine", "=", comSym)
       .then(response => {
         let count = Object.values(response[0]);
         let rand = Math.floor(Math.random() * Math.floor(count));
