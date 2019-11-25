@@ -10,8 +10,9 @@ const RecipeService = {
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     let comNum = answers.complexity === "yes" ? "> 2" : "< 3";
-    return db("recipes")
+    return db
       .count("id as CNT")
+      .from("recipes")
       .where({
         cuisine: answers.cuisine,
         complexity: comNum
