@@ -14,10 +14,13 @@ const RecipeService = {
     console.log(`answers.craving: ${answers.craving}`);
     return db("recipes")
       .select("id")
-      .where({ complex: answers.complex })
       .modify(() => {
         if (answers.cuisine) {
-          knex.andWhere({ cuisine: answers.cuisine });
+          knex
+            .where({ complex: answers.complex })
+            .andWhere("cuisine", answers.cuisine);
+        } else {
+          knex.where({ complex: answers.complex });
         }
       })
       .orderByRaw("RANDOM()")
