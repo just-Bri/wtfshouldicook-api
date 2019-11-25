@@ -21,7 +21,7 @@ const RecipeService = {
         // AND "complex" = False
         // ORDER BY RANDOM()
         // LIMIT 1;
-        .then(response => console.log(response.id))
+        .then(response => console.log(Object.values(response[0].id)))
         .then(response => response)
     );
   },
