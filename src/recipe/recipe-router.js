@@ -27,7 +27,6 @@ recipeRouter
           req.body.instructions,
           id
         ).then(id => {
-          res.statusText(id);
           return Promise.all([
             RecipeService.postIngredients(db, req.body.ingredients).then(
               ing_id => {
@@ -37,7 +36,7 @@ recipeRouter
           ]);
         });
       })
-      .then(() => res.status(201).send("ok"))
+      .then(id => res.status(201).send(id))
       .catch(next);
   });
 
