@@ -12,7 +12,7 @@ CREATE TABLE "recipes" (
   "prep_time" int NOT NULL,
   "cook_time" int NOT NULL,
   "cuisine" varchar(50) NOT NULL,
-  "complexity" int NOT NULL,
+  "complex" boolean NOT NULL,
   primary key (id)
 );
 

@@ -8,12 +8,12 @@ const RecipeService = {
 
   getByAnswers(db, answers) {
     console.log(`answers.cuisine: ${answers.cuisine}`);
-    console.log(`answers.complexity: ${answers.complexity}`);
+    console.log(`answers.complex: ${answers.complex}`);
     // let comSym = answers.complexity === "yes" ? '">"' : '"<"';
     // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
-      .where("complexity", "=", 5)
+      .where("complex", "=", answers.complex)
       .andWhere("cuisine", "=", answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
