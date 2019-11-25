@@ -10,11 +10,11 @@ const RecipeService = {
     console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
-    let comSym = answers.complexity === "yes" ? '">"' : '"<"';
-    console.log(comSym);
+    // let comSym = answers.complexity === "yes" ? '">"' : '"<"';
+    // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
-      .where("complexity", comSym, "3")
+      .where("complexity", ">", "3")
       .andWhere("cuisine", "=", answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
