@@ -7,14 +7,13 @@ const RecipeService = {
   },
 
   getByAnswers(db, answers) {
-    console.log(`answers: ${answers}`);
     console.log(`answers.cuisine: ${answers.cuisine}`);
     console.log(`answers.complexity: ${answers.complexity}`);
     // let comSym = answers.complexity === "yes" ? '">"' : '"<"';
     // console.log(comSym);
     return db("recipes")
       .count("id as CNT")
-      .where("complexity", ">", 3)
+      .where("complexity", "=", 5)
       .andWhere("cuisine", "=", answers.cuisine)
       .then(response => {
         let count = Object.values(response[0]);
