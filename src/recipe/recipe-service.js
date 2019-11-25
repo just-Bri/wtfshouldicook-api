@@ -16,15 +16,16 @@ const RecipeService = {
         cuisine: answers.cuisine,
         complexity: comNum
       })
-      .returning("CNT")
-      .then(response => {
-        console.log(response);
-        // let rand = Math.floor(Math.random() * Math.floor(CNT));
-        // console.log(rand);
-        // return db("recipes");
-        // .select("*")
-        // .where({ cuisine: answers.cuisine }).then()
-      });
+      .then(console.log);
+    // .returning("CNT")
+    // .then(response => {
+    //   console.log(response);
+    // let rand = Math.floor(Math.random() * Math.floor(CNT));
+    // console.log(rand);
+    // return db("recipes");
+    // .select("*")
+    // .where({ cuisine: answers.cuisine }).then()
+    // });
   },
   postRecipe(db, recipe) {
     return db("recipes")
