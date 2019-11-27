@@ -60,7 +60,7 @@ const RecipeService = {
         console.log(ing);
         return db("recipe_ingredients").insert({
           recipe_id: parseInt(id[i], 10),
-          ingredient_id: ing_id[i],
+          ingredient_id: parseInt(ing_id[i], 10),
           ingredient_amount: ing.amount
         });
       })
