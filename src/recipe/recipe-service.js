@@ -59,7 +59,7 @@ const RecipeService = {
       body.ingredients.map((ing, i) => {
         console.log(ing);
         return db("recipe_ingredients").insert({
-          recipe_id: id[i],
+          recipe_id: parseInt(id[i], 10),
           ingredient_id: ing_id[i],
           ingredient_amount: ing.amount
         });

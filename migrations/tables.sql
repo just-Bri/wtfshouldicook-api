@@ -18,7 +18,7 @@ CREATE TABLE "recipes" (
 
 CREATE TABLE "ingredients" (
   id integer not null generated always as identity,
-  "name" varchar(50) UNIQUE NOT NULL,
+  "name" varchar(50) NOT NULL,
   primary key (id)
 );
 
