@@ -57,6 +57,7 @@ const RecipeService = {
     // console.log(body);
     return Promise.all(
       body.ingredients.map((ing, i) => {
+        console.log(`id[i]: ${id[i]}`);
         console.log(`ing.amount: ${ing.amount}`);
         console.log(`ing_id[i]: ${ing_id[i]}`);
         return db("recipe_ingredients").insert({
