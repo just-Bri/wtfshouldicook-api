@@ -53,10 +53,11 @@ const RecipeService = {
     ).then(response => response);
   },
   postRecipeIngredients(db, body, id, ing_id) {
-    // problem here, ing only has 2 ingredients
-    console.log(body);
+    // problem here, ing only has 2 ingredients?
+    // console.log(body);
     return Promise.all(
       body.ingredients.map((ing, i) => {
+        console.log(ing);
         return db("recipe_ingredients").insert({
           recipe_id: id[i],
           ingredient_id: ing_id[i],
