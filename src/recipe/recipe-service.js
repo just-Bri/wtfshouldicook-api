@@ -53,13 +53,8 @@ const RecipeService = {
     ).then(response => response);
   },
   postRecipeIngredients(db, body, id, ing_id) {
-    // problem here, ing only has 2 ingredients?
-    // console.log(body);
     return Promise.all(
       body.ingredients.map((ing, i) => {
-        // console.log(`id[0]: ${id}`);
-        // console.log(`ing.amount: ${ing.amount}`);
-        // console.log(`ing_id[i]: ${ing_id[i]}`);
         return db("recipe_ingredients").insert({
           recipe_id: parseInt(id[0]),
           ingredient_id: parseInt(ing_id[i]),
