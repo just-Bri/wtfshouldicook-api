@@ -8,7 +8,7 @@ This is the Node/Express/Postgres back end for [wtfshouldicook](https://wtfshoul
 > https://wtfshouldicook-api.herokuapp.com/api
 
 ### Get a recipe:
-> /recipe?craving=no&cuisine=&complex=no
+> /recipe?cuisine=&complex=no
 
 #### Current cuisine options:
  - British
