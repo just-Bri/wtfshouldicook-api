@@ -9,7 +9,7 @@ const { NODE_ENV } = require("./config");
 const RecipeRouter = require("./recipe/recipe-router");
 const IngredientRouter = require("./ingredients/ingredients-router");
 const InstructionRouter = require("./instructions/instructions-router");
-const app = express();
+const app = express({ maxAge: "31557600" });
 
 const morganOption = NODE_ENV === "production" ? "tiny" : "common";
 
