@@ -36,12 +36,6 @@ app.get("/", (req, res) => {
 app.use("/api/recipe", RecipeRouter);
 app.use("/api/ingredient", IngredientRouter);
 app.use("/api/instruction", InstructionRouter);
-app.get("/service-worker.js", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "public", "service-wroker.js"));
-});
-app.get("*", function response(req, res) {
-  res.sendFile(path.join(__dirname, "public", "index.html"));
-});
 
 // app.post("/api/recipe", (req, res) => {
 //   res.status(200).send("app.post inside app.js" + Object.keys(req.body));
