@@ -23,9 +23,9 @@ This is the Node/Express/Postgres back end for [wtfshouldicook](https://wtfshoul
 > /recipe?cuisine=&complex=no
 
 #### Current cuisine options:
+ - American
  - British
  - Chinese
- - French
  - Indian
  - Italian
  - Mexican
