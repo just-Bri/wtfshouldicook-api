@@ -12,8 +12,6 @@ describe("Recipe", () => {
       });
   });
   it("GET /api/recipe 201s with answers", done => {
-    // This fails when no recipes in DB.
-    // Not sure what to do about that.
     chai
       .request(app)
       .get("/api/recipe")
