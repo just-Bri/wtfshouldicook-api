@@ -7,13 +7,13 @@ const ingredientRouter = express.Router();
 
 ingredientRouter.route("/:recipe_id").get((req, res, next) => {
   const db = req.app.get("db");
-  // console.log(`recipe_id in router: ${req.params.recipe_id}`);
   IngredientService.getByRecipeId(db, req.params.recipe_id)
     .then(ingredients => {
-      // console.log(ingredients);
       res.json(ingredients);
     })
-    .catch(next);
+    .catch(response =>
+      res.status(404).json({ error: "Please supply a recipe id" })
+    );
 });
 
 module.exports = ingredientRouter;

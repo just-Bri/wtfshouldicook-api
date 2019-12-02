@@ -9,5 +9,5 @@ const db = knex(connect);
 app.set("db", db);
 
 app.listen(PORT, () => {
-  console.log(`Server listening at ${DATABASE_URL}:${PORT}`);
+  // console.log(`Server listening at ${DATABASE_URL}:${PORT}`);
 });

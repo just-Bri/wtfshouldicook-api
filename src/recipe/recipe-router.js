@@ -5,20 +5,12 @@ const RecipeService = require("./recipe-service");
 const recipeRouter = express.Router();
 const jsonParser = express.json();
 
-// const serializeRecipe = recipe => ({
-//   name: xss(recipe.name),
-//   prep_time: xss(recipe.prep_time),
-//   cook_time: xss(recipe.cook_time),
-//   cuisine: xss(recipe.cuisine),
-//   complex: xss(recipe.complex)
-// });
-
 let submittedId;
 recipeRouter.route("/").get((req, res, next) => {
   const db = req.app.get("db");
   RecipeService.getByAnswers(db, req.query)
     .then(response => res.status(201).json({ newId: response[0].id }))
-    .catch(next);
+    .catch(() => res.status(404).json({ error: "Please supply a query" }));
 });
 
 recipeRouter.route("/").post((req, res, next) => {
@@ -41,7 +33,7 @@ recipeRouter.route("/").post((req, res, next) => {
     .then(() =>
       res.json({ success: true, redirectTo: `/recipes/${submittedId}` })
     )
-    .catch(next);
+    .catch(() => res.status(404).json({ error: "Please supply a recipe" }));
 });
 
 recipeRouter.route("/:id").get((req, res, next) => {
