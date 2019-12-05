@@ -2,6 +2,18 @@
 
 This is the Node/Express/Postgres back end for [wtfshouldicook](https://wtfshouldicook.com)
 
+## Tech used
+### Front-end
+> Node
+
+> React
+### Back-end
+> Express
+
+> PostgresQL for database
+
+> knex for querying database
+
 ## End Points
 
 ### base url: 
@@ -11,9 +23,9 @@ This is the Node/Express/Postgres back end for [wtfshouldicook](https://wtfshoul
 > /recipe?cuisine=&complex=no
 
 #### Current cuisine options:
+ - American
  - British
  - Chinese
- - French
  - Indian
  - Italian
  - Mexican
