@@ -5,7 +5,8 @@ const InstructionService = {
   getByRecipeId(db, recipe_id) {
     return db("instructions")
       .select("step_number", "instructions")
-      .where({ recipe_id });
+      .where({ recipe_id })
+      .orderBy("step_number");
   }
 };
 
