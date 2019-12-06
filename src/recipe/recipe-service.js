@@ -1,3 +1,5 @@
+var SqlString = require("sqlstring");
+
 const RecipeService = {
   getAllRecipes(db) {
     return db.select("*").from("recipes");
@@ -20,7 +22,7 @@ const RecipeService = {
   postRecipe(db, recipe) {
     return db("recipes")
       .insert({
-        name: recipe.name,
+        name: SqlString.escape(recipe.name),
         prep_time: recipe.prep_time,
         cook_time: recipe.cook_time,
         cuisine: recipe.cuisine,
@@ -35,7 +37,7 @@ const RecipeService = {
           .insert({
             recipe_id: parseInt(id, 10),
             step_number: parseInt(i, 10),
-            instructions: item.instructions
+            instructions: SqlString.escape(item.instructions)
           })
           .returning("recipe_id");
       })
@@ -46,7 +48,7 @@ const RecipeService = {
       ing.map(item => {
         return db("ingredients")
           .insert({
-            name: item.name
+            name: SqlString.escape(item.name)
           })
           .returning("id");
       })
@@ -58,7 +60,7 @@ const RecipeService = {
         return db("recipe_ingredients").insert({
           recipe_id: parseInt(id[0]),
           ingredient_id: parseInt(ing_id[i]),
-          ingredient_amount: ing.amount
+          ingredient_amount: SqlString.escape(ing.amount)
         });
       })
     );
