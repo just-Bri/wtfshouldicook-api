@@ -35,7 +35,7 @@
     "chai-http": "^4.3.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.15.1",
-    "expect": "^24.9.0",
+    "expect": "^29.7.0",
     "mocha": "^10.2.0",
     "nodemon": "^2.0.21",
     "supertest": "^4.0.2"
